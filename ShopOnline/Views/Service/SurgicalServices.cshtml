@@ -1,0 +1,221 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Services</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link href="~/Assets/Client/css/service_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Assets/Client/vendor/fontawesome-free/css/fontawesome.min.css">
+    <script src="https://kit.fontawesome.com/ff1f89259c.js" crossorigin="anonymous"></script>
+    <link href="~/Assets/Client/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/Assets/Client/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body>
+    <!--navigation-->
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-branch" href="#">
+                <img src="~/Assets/Client/images/Luc.png" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tin tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/service">Dịch vụ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chi Nhánh</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên Hệ</a>
+                    </li>
+                    @{
+                        var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
+                    }
+                    @if (session == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/login">Đăng nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/register">Đăng ký</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item dropdown no-arrow hidden">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span style="color: skyblue" class="mr-2 d-none d-lg-inline ">@session.UserName</span>
+                                <img style=" max-width: 30px; max-height:30px;" class="img-profile rounded-circle"
+                                     src="~/Assets/Client/images/hiep.jpg">
+                            </a>
+                            @*Dropdown - User Information*@
+                            <div style="background-color: aquamarine ;margin: 0;" class=" dropdown-menu dropdown-menu-lg-right shadow animated--grow-in m-0"
+                                 aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="@Url.Action("Logout","user")">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container-wrap">
+        <div class="container main-content">
+            <div class="col-lg-6">
+                <img src="~/Assets/Client/images/Surgery_1.PNG" class="img-fluid">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                <h1>
+                    Nha khoa
+                </h1>
+                <p>Hãy tưởng tượng miệng của bạn sẽ như thế nào nếu bạn không bao giờ đánh răng hoặc đến nha sĩ. Đối với nhiều chú chó, mèo, đây là một thực tế đau lòng. Theo Hiệp hội Nha khoa Thú y Hoa Kỳ, hơn 80% chó và 70% mèo mắc bệnh răng miệng ở độ tuổi lên 3. Bệnh răng miệng (hoặc nha chu) là vấn đề sức khỏe được chẩn đoán thường xuyên nhất ở vật nuôi.</p>
+                <p>
+                    Các dấu hiệu phổ biến của bệnh răng miệng bao gồm:
+                </p>
+                <ul>
+                    <li>
+                        <a>
+                            Tích tụ màu vàng hoặc nâu (cao răng) trên răng
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            Nướu đỏ, sưng hoặc chảy máu
+                        </a>
+                    </li>
+                    <li>
+                        <a>Chảy nhiều nước dãi</a>
+                    </li>
+                    <li>
+                        <a>
+                            Thay đổi thói quen ăn hoặc nhai
+                        </a>
+                    </li>
+                   
+                    <li>
+                        <a>
+                            Răng lung lay
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            Sự chán nản
+                        </a>
+                    </li>
+                </ul>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="container-wrap">
+        <div class="container main-content">
+            <div class="col-lg-6">
+                <img src="~/Assets/Client/images/choose2.png" class="img-fluid">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                <h1>Tiểu phẫu</h1>
+                <p>Chúng tôi thực hiện nhiều loại phẫu thuật mô mềm tại phòng khám của chúng tôi. Phẫu thuật mô mềm là những phẫu thuật không liên quan đến xương. Những cuộc phẫu thuật này có thể mang lại nhiều lợi ích cho thú cưng.</p>
+                <p>Có lẽ phẫu thuật mô mềm phổ biến nhất được thực hiện trên vật nuôi là loại bỏ các khối hoặc cục u. Hầu hết các khối này, sau khi được loại bỏ và kiểm tra, được phát hiện là lành tính (không gây hại); tuy nhiên, đôi khi chúng nghiêm trọng hơn. Việc loại bỏ sớm và chẩn đoán chính xác khối u là cần thiết để cải thiện kết quả ở thú cưng của bạn nếu khối u đó là ung thư.</p>
+                <p>Nếu con chó của bạn bị nhiễm trùng tai thường xuyên, can thiệp phẫu thuật có thể làm giảm sự xuất hiện của chúng bằng cách cải thiện luồng không khí vào ống tai.</p>
+                <p>Phẫu thuật cũng có thể giúp giải quyết một số vấn đề liên quan đến mắt. Rách mắt của thú cưng có thể có nghĩa là đang bị nhiễm trùng hoặc có thể là dấu hiệu cho thấy giác mạc (lớp ngoài của mắt) đã bị tổn thương. Phẫu thuật có thể cho phép giác mạc lành nhanh hơn với ít sẹo hơn, cải thiện khả năng nhìn của thú cưng. Ở một số vật nuôi, lông mi thực sự có thể làm hỏng giác mạc. Can thiệp phẫu thuật giúp cải thiện sự thoải mái cho những vật nuôi này, giảm nguy cơ sẹo giác mạc và nâng cao thị lực của vật nuôi về lâu dài.</p>
+                <p>
+                    Vui lòng liên hệ với chúng tôi nếu bạn muốn thảo luận về cách phẫu thuật mô mềm có thể giúp thú cưng của bạn.
+                </p>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="page-section">
+        <br />
+        <hr />
+        <div class="container">
+            <h1 class="text-center wow fadeInUp">Đặt lịch khám</h1>
+            <br />
+            <div class="d-flex justify-content-center">
+                <Button  class="m-1 btn btn-primary  " type="submit">
+                    <a class="m-1" style="color:white;text-decoration:none" href="@Url.Action("Index","Appointment", new {id =3 })">
+                        <i class="fa fa-calendar-check-o"> </i>
+                        Now
+                    </a>
+                </Button>
+            </div>
+            
+        </div>
+    </div>
+    <br />
+    <hr />
+    <footer>
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <img src="~/Assets/Client/images/Luc.png">
+                    <hr class="light">
+                    <p>111-222-3333</p>
+                    <p>nhatdang261@gmail.com</p>
+                    <p>475A Dien Bien Phu, Binh Thanh district, HCM, VietNam</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Working hours</h5>
+                    <hr class="light">
+                    <p>Monday-Friday: 8am - 5pm</p>
+                    <p>Weekend: 8am - 12am</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Services</h5>
+                    <hr class="light">
+                    <p>Outsourcing</p>
+                    <p>Website development</p>
+                    <p>Mobile applications</p>
+                </div>
+                <div class="col-12">
+                    <hr class="light-100">
+                    <h5>&copy; WebProject</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>

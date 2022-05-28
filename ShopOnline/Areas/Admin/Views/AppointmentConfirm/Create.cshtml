@@ -1,0 +1,65 @@
+﻿@model Model.EF.Apointment
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Header{
+    Create A new Appointment
+}
+
+<div id="page-section" class="page-section">
+    <div class="container">
+        <h1 class="text-center wow fadeInUp">Make an Appointment</h1>
+        @using (Html.BeginForm("Create", "AppointmentConfirm", FormMethod.Post, new { @class = "main-form" }))
+        {
+            @*@Html.ValidationSummary(false, "", new { @class = "text-danger" })*@
+            <div class="row mt-5 ">
+                <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+                    @*<input type="text" class="form-control" placeholder="Full name">*@
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Full name" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+                    @*<input type="text" class="form-control" placeholder="Email address..">*@
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email address", @type = "email" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
+                    @Html.TextBoxFor(model => model.BookingDate, new { @class = "form-control", @type = "date" })
+                    @Html.ValidationMessageFor(model => model.BookingDate, "Please, check your clinic date(the date must be higher than the present day)", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
+                    @Html.DropDownList("ServicesId", new SelectList(Model.list, "Id", "Name"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ServicesId, "", new { @class = "text-danger" })
+                </div>
+                <div class="m-1 form-group row">
+                    <div class="m-1 form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Ca 1 |
+                        </label>
+                    </div>
+                    <div class="m-1 form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Ca 2 |
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @type = "text", @placeholder = "Phone number" })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
+                    @Html.TextAreaFor(model => model.Note, new { @class = "form-control", @name = "message", @rows = 6, @placeholder = "Enter message..." })
+                </div>
+            </div>
+            <button type="submit" class="mt-3 btn btn-primary col-md-12 wow zoomIn">Submit Request</button>
+        }
+    </div>
+</div> <!-- .page-section -->
+
+<br />
+@Html.ActionLink("Back to list", "Index","AppointmentConfirm")

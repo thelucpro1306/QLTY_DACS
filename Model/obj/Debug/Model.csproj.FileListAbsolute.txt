@@ -1,0 +1,82 @@
+C:\Users\THE LUC\Desktop\ShopOnline\Model\bin\Debug\Model.dll.config
+C:\Users\THE LUC\Desktop\ShopOnline\Model\bin\Debug\Model.dll
+C:\Users\THE LUC\Desktop\ShopOnline\Model\bin\Debug\Model.pdb
+C:\Users\THE LUC\Desktop\ShopOnline\Model\bin\Debug\EntityFramework.dll
+C:\Users\THE LUC\Desktop\ShopOnline\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\THE LUC\Desktop\ShopOnline\Model\bin\Debug\EntityFramework.xml
+C:\Users\THE LUC\Desktop\ShopOnline\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\THE LUC\Desktop\ShopOnline\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+C:\Users\THE LUC\Desktop\ShopOnline\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\THE LUC\Desktop\ShopOnline\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\THE LUC\Desktop\ShopOnline\Model\obj\Debug\Model.dll
+C:\Users\THE LUC\Desktop\ShopOnline\Model\obj\Debug\Model.pdb
+C:\Users\hatha\Desktop\ShopOnline\Model\bin\Debug\Model.dll.config
+C:\Users\hatha\Desktop\ShopOnline\Model\bin\Debug\Model.dll
+C:\Users\hatha\Desktop\ShopOnline\Model\bin\Debug\Model.pdb
+C:\Users\hatha\Desktop\ShopOnline\Model\bin\Debug\EntityFramework.dll
+C:\Users\hatha\Desktop\ShopOnline\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\hatha\Desktop\ShopOnline\Model\bin\Debug\EntityFramework.xml
+C:\Users\hatha\Desktop\ShopOnline\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\hatha\Desktop\ShopOnline\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+C:\Users\hatha\Desktop\ShopOnline\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\hatha\Desktop\ShopOnline\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\hatha\Desktop\ShopOnline\Model\obj\Debug\Model.dll
+C:\Users\hatha\Desktop\ShopOnline\Model\obj\Debug\Model.pdb
+C:\Users\hatha\Desktop\ShopOnline\Model\bin\Debug\PagedList.dll
+C:\Users\hatha\Desktop\ShopOnline\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\hatha\Desktop\ShopOnline\Model\bin\Debug\PagedList.xml
+C:\Users\hatha\Desktop\ShopOnline\Model\bin\Debug\PagedList.Mvc.xml
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\Model.dll.config
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\Model.dll
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\Model.pdb
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\EntityFramework.dll
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\Microsoft.CSharp.dll
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\PagedList.dll
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\PagedList.Mvc.dll
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\System.dll
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\EntityFramework.xml
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\PagedList.xml
+D:\sadasdasdas\QLTYDemo\Model\bin\Debug\PagedList.Mvc.xml
+D:\sadasdasdas\QLTYDemo\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+D:\sadasdasdas\QLTYDemo\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\sadasdasdas\QLTYDemo\Model\obj\Debug\Model.csproj.CopyComplete
+D:\sadasdasdas\QLTYDemo\Model\obj\Debug\Model.dll
+D:\sadasdasdas\QLTYDemo\Model\obj\Debug\Model.pdb
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\obj\Debug\Model.dll
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\obj\Debug\Model.pdb
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\Model.dll.config
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\Model.dll
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\Model.pdb
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\EntityFramework.dll
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\Microsoft.CSharp.dll
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\PagedList.dll
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\System.dll
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\EntityFramework.xml
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\PagedList.xml
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\nhat\Downloads\QLTYDemo-1205\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\obj\Debug\Model.dll
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\obj\Debug\Model.pdb
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\Model.dll.config
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\Model.dll
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\Model.pdb
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\EntityFramework.dll
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\Microsoft.CSharp.dll
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\PagedList.dll
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\PagedList.Mvc.dll
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\System.dll
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\EntityFramework.xml
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\PagedList.xml
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\bin\Debug\PagedList.Mvc.xml
+C:\Users\hatha\Desktop\QLTYDemo-1205\Model\obj\Debug\Model.csproj.CopyComplete

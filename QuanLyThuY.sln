@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyThuY", "ShopOnline\QuanLyThuY.csproj", "{099A1C3A-023E-4D4F-A216-08D6F86C606D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{625218A2-04EE-4915-8CE8-8AC1386BB310}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{099A1C3A-023E-4D4F-A216-08D6F86C606D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{099A1C3A-023E-4D4F-A216-08D6F86C606D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{099A1C3A-023E-4D4F-A216-08D6F86C606D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{099A1C3A-023E-4D4F-A216-08D6F86C606D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{625218A2-04EE-4915-8CE8-8AC1386BB310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{625218A2-04EE-4915-8CE8-8AC1386BB310}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{625218A2-04EE-4915-8CE8-8AC1386BB310}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{625218A2-04EE-4915-8CE8-8AC1386BB310}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92949009-1BDF-4ED2-B766-8216DF63FE47}
+	EndGlobalSection
+EndGlobal

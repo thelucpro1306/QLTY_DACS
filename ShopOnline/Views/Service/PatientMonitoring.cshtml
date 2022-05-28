@@ -1,0 +1,179 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link href="~/Assets/Client/css/service_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Assets/Client/vendor/fontawesome-free/css/fontawesome.min.css">
+    <script src="https://kit.fontawesome.com/ff1f89259c.js" crossorigin="anonymous"></script>
+    <link href="~/Assets/Client/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/Assets/Client/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+<body>
+    <!--navigation-->
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-branch" href="#">
+                <img src="~/Assets/Client/images/Luc.png" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tin tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/service">Dịch vụ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chi Nhánh</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên Hệ</a>
+                    </li>
+                    @{
+                        var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
+                    }
+                    @if (session == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/login">Đăng nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/register">Đăng ký</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item dropdown no-arrow hidden">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span style="color: skyblue" class="mr-2 d-none d-lg-inline ">@session.UserName</span>
+                                <img style=" max-width: 30px; max-height:30px;" class="img-profile rounded-circle"
+                                     src="~/Assets/Client/images/hiep.jpg">
+                            </a>
+                            @*Dropdown - User Information*@
+                            <div style="background-color: cadetblue;margin: 0;" class=" dropdown-menu dropdown-menu-lg-right shadow animated--grow-in m-0"
+                                 aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="@Url.Action("Logout","user")">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-wrap">
+        <div class="container main-content">
+            <div class="col-lg-6">
+                
+                <img src="~/Assets/Client/images/Patient_1.PNG" class="img-fluid" />
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                <h1>Nội khoa</h1>
+                <p>Đáp ứng nhu cầu về các hình thức chăm sóc sức khỏe thú cưng đa dạng của người nuôi động vật, bác sĩ thú y tại khoa khám bệnh luôn ý thức nâng cao năng lực thường xuyên bằng việc tham gia các chương trình đào tạo dài hạn hoặc ngắn hạn liên tục trong năm. Mục tiêu là cập nhật các kiến thức y khoa thú y một các hiện đại nhất, lựa chọn các phương pháp khám, thủ thuật hiệu quả, không gây stress thú cưng, các loại thuốc mới giảm thiểu phản ứng phụ.</p>
+                
+            
+            </div>
+        </div>
+    </div>
+    <div class="container-wrap">
+        <div class="container main-content">
+            <div class="col-lg-6">
+                
+                <img src="~/Assets/Client/images/patient_2.PNG" class="img-fluid"  />
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                <h1>Ngoại khoa</h1>
+                <p>Đối với một số thủ thuật, thú cưng của bạn sẽ cần được gây mê toàn thân để chúng không bị bất tỉnh và không cảm thấy đau đớn. Nhiều chủ vật nuôi lo lắng về việc vật nuôi của họ được gây mê toàn thân. Chúng tôi có thể đảm bảo với bạn rằng phương pháp gây mê hiện đại nói chung là khá an toàn; để giảm thiểu rủi ro hơn nữa, chúng tôi thực hiện khám sức khỏe và thực hiện xét nghiệm máu trước thời hạn để phát hiện bất kỳ vấn đề sức khỏe tiềm ẩn nào. Ngoài ra, chúng tôi tuân theo một quy trình gây mê cụ thể, bao gồm theo dõi các dấu hiệu quan trọng trong quá trình phẫu thuật, để đảm bảo an toàn cho bệnh nhân của chúng tôi.</p>
+                <p>Vui lòng liên hệ với chúng tôi nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào về việc thú cưng của bạn được gây mê toàn thân hoặc về quy trình mà thú cưng của bạn được lên lịch.</p>
+
+
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="page-section">
+        <div class="container">
+            <h1 class="text-center wow fadeInUp">Đặt lịch khám</h1>
+
+            <div class="d-flex justify-content-center">
+                <Button class="m-1 btn btn-primary  " type="submit">
+                    <a class="m-1" style="color:white;text-decoration:none" href="/Appointment/Index">
+                        <i class="fa fa-calendar-check-o"> </i>
+                        Now
+                    </a>
+                </Button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <hr />
+    <footer>
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <img src="~/Assets/Client/images/Luc.png">
+                    <hr class="light">
+                    <p>111-222-3333</p>
+                    <p>nhatdang261@gmail.com</p>
+                    <p>475A Dien Bien Phu, Binh Thanh district, HCM, VietNam</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Working hours</h5>
+                    <hr class="light">
+                    <p>Monday-Friday: 8am - 5pm</p>
+                    <p>Weekend: 8am - 12am</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Services</h5>
+                    <hr class="light">
+                    <p>Outsourcing</p>
+                    <p>Website development</p>
+                    <p>Mobile applications</p>
+                </div>
+                <div class="col-12">
+                    <hr class="light-100">
+                    <h5>&copy; WebProject</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

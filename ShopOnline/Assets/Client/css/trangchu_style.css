@@ -1,0 +1,206 @@
+
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-size: 28px;
+    color: #222;
+}
+
+.navbar {
+    background-color: rgba(79, 51, 139, 0.9) !important;
+}
+
+    .navbar li a {
+        color: white !important;
+    }
+
+        .navbar li a:hover {
+            color: black !important;
+        }
+
+.carousel-inner img {
+    width: 100%;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+}
+
+    .carousel-caption h1 {
+        font-size: 400%;
+        text-transform: uppercase;
+        text-shadow: 5px 5px 15px #000;
+    }
+
+    .carousel-caption h3 {
+        font-size: 200%;
+        text-shadow: 2px 2px 10px #000;
+    }
+
+.jumbotron {
+    padding: 1rem;
+    border-radius: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.schedule-card {
+    box-shadow: 0 0px 8px  rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: fit-content;
+    margin: 5%;
+    /*float: left;*/
+    
+}
+
+    .schedule-card.hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+.f-block-title-top {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+h4 {
+    text-align: center;
+}
+
+/*.container {
+    width: 300px;
+    height: 300px;
+    /*padding: 5px 16px;*/
+/*}
+*/
+
+.card-schedule {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:20px;
+    padding-left:73px;
+    box-sizing:border-box;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+    .card.hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+
+.welcom hr {
+    border-top: 2px solid rgb(62,44,100);
+    width: 95%;
+    margin-bottom: 2rem;
+}
+
+
+
+footer {
+    background-color: #3f3f3f;
+    color: #d5d5d5;
+}
+.social a {
+    font-size: 3em;
+    padding: 3rem;
+}
+
+.fa-facebook {
+    color: #3b5998;
+}
+
+.fa-twitter {
+    color: #00ac
+}
+
+.fa-google-plus-g {
+    color: #dd4b39;
+}
+
+.fa-instagram {
+    color: #517fa4;
+}
+
+.fa-youtube {
+    color: #bb0000;
+}
+
+hr.light {
+    border-top: 1px solid #d5d5d5;
+    width: 75%;
+}
+
+.light-100 {
+    border-top: 1px solid #d5d5d5;
+    width: 100%;
+}
+
+
+
+@media (max-width: 992px) {
+    .carousel-caption {
+        top: 20%;
+    }
+
+        .carousel-caption h1 {
+            font-size: 250%;
+        }
+
+        .carousel-caption h3 {
+            font-size: 160%;
+            text-shadow: 2px 2px 10px #000;
+        }
+
+        .carousel-caption .btn {
+            font-size: 120%;
+        }
+}
+
+@media (max-width: 768px) {
+    .carousel-caption {
+        top: 20%;
+    }
+
+        .carousel-caption h1 {
+            font-size: 220%;
+        }
+
+        .carousel-caption h3 {
+            font-size: 140%;
+            padding-bottom: 0.2rem;
+        }
+
+        .carousel-caption .btn {
+            font-size: 95%;
+            padding: 8px 14px;
+        }
+}
+
+@media (max-width: 576px) {
+    .carousel-caption {
+        top: 10%;
+    }
+
+        .carousel-caption h1 {
+            font-size: 150%;
+        }
+
+        .carousel-caption h3 {
+            font-size: 110%;
+        }
+
+        .carousel-caption .btn {
+            font-size: 90%;
+            padding: 4px 8px;
+        }
+}

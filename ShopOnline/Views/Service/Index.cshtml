@@ -1,0 +1,213 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Services</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link href="~/Assets/Client/css/trangchu_style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ff1f89259c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-branch" href="#">
+                <img src="~/Assets/Client/images/Luc.png" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tin tức</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/service">Dịch vụ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chi Nhánh</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên Hệ</a>
+                    </li>
+                    @{
+                        var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
+                    }
+                    @if (session == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/login">Đăng Nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/register">Đăng Ký</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item dropdown no-arrow hidden">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span style="color: skyblue" class="mr-2 d-none d-lg-inline ">@session.UserName</span>
+                                <img style=" max-width: 30px; max-height:30px;" class="img-profile rounded-circle"
+                                     src="~/Assets/Client/images/hiep.jpg">
+                            </a>
+                            @*Dropdown - User Information*@
+                        <div style="background-color: aquamarine ;margin: 0;" class=" dropdown-menu dropdown-menu-lg-right shadow animated--grow-in m-0"
+                             aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/user/schedulehistory">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Schedule History
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Logout","user")">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+
+                        </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="container-fluid padding">
+        <div class="row welcome text-center">
+            <div class="col-12">
+                <h1 class="display-4">
+                    Những gì chúng tôi cung cấp
+                </h1>
+            </div>
+            <!-- Horizontal Rule -->
+            <div class="col-12">
+                <p>
+                    Pet Health Clinic cung cấp nhiều dịch vụ chuyên nghiệp cho thú cưng của bạn bao gồm phẫu thuật tổng quát, tư vấn dinh dưỡng, theo dõi bệnh nhân, nha khoa, chải lông, tiêm phòng, v.v.! Nếu bạn đã sẵn sàng gặp nhóm chuyên gia thú y của chúng tôi,hãy đặt lịch hẹn ngay bây giờ.
+                </p>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container-fluid padding">
+        <div class="row text-center padding">
+            <div class="col-xs-12 col-sm-6 col-md-4 ">
+                <a href="/Service/SurgicalServices" class="btn btn-primary btn-circle btn-lg">
+                    <i class="fa-solid fa-user-doctor"></i>
+                </a>
+                <h3>Phẫu Thuật</h3>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <a href="/Service/PreventativeServices" class="btn btn-success btn-circle btn-lg">
+                    <i class="fa-solid fa-capsules"></i>
+                </a>
+                <h3>Tiêm Ngừa</h3>
+
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <a href="/Service/AdditionalServices" class="btn btn-primary btn-circle btn-lg">
+                    <i class="fa-solid fa-briefcase-medical"></i>
+                </a>
+                <h3>Dịch vụ khác</h3>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center padding">
+            <div class="col-xs-12 col-sm-6 col-md-4 ">
+                <a href="/Service/PatientMonitoring" class="btn btn-primary btn-circle btn-lg">
+                    <i class="fa-solid fa-stethoscope"></i>
+                </a>
+                <h3>Khám bệnh</h3>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <a href="/Service/PetWellness" class="btn btn-success btn-circle btn-lg">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+                <h3>Xét nghiệm </h3>
+
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <a href="/Service/PetSupplies" class="btn btn-primary btn-circle btn-lg">
+                    <i class="fa-solid fa-dog"></i>
+                </a>
+                <h3>Siêu âm</h3>
+            </div>
+        </div>
+        <hr>
+        <div class="row text-center padding">
+            <div class="col-xs-12 col-sm-6 col-md-4 ">
+                <a href="/Service/Grooming" class="btn btn-primary btn-circle btn-lg">
+                    <i class="fa-solid fa-broom"></i>
+                </a>
+                <h3>Làm đẹp</h3>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <a href="/Service/ScreeningTest" class="btn btn-success btn-circle btn-lg">
+                    <i class="fa-solid fa-print"></i>
+                </a>
+                <h3>Lưu chuồng</h3>
+
+            </div>
+           
+        </div>
+    </div>
+    <footer>
+        <div class="container-fluid padding">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <img src="~/Assets/Client/images/Luc.png">
+                    <hr class="light">
+                    <p>111-222-3333</p>
+                    <p>nhatdang261@gmail.com</p>
+                    <p>475A Dien Bien Phu, Binh Thanh district, HCM, VietNam</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Working hours</h5>
+                    <hr class="light">
+                    <p>Monday-Friday: 8am - 5pm</p>
+                    <p>Weekend: 8am - 12am</p>
+                </div>
+                <div class="col-md-4">
+                    <hr class="light">
+                    <h5>Services</h5>
+                    <hr class="light">
+                    <p>Outsourcing</p>
+                    <p>Website development</p>
+                    <p>Mobile applications</p>
+                </div>
+                <div class="col-12">
+                    <hr class="light-100">
+                    <h5>&copy; WebProject</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

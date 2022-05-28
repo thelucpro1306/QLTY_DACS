@@ -1,0 +1,61 @@
+﻿<div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link active" href="/">Trang chủ</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Tin tức</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/service">Dịch vụ</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Chi Nhánh</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Liên Hệ</a>
+        </li>
+        @{
+            var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
+        }
+        @if (session == null)
+        {
+            <li class="nav-item">
+                <a class="nav-link" href="/user/login">Đăng Nhập</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/register">Đăng Ký</a>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item dropdown no-arrow hidden">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span style="color: skyblue" class="mr-2 d-none d-lg-inline ">@session.UserName</span>
+                    <img style=" max-width: 30px; max-height:30px;" class="img-profile rounded-circle"
+                         src="~/Assets/Client/images/hiep.jpg">
+                </a>
+                @*Dropdown - User Information*@
+                <div style="background-color: aquamarine ;margin: 0;" class=" dropdown-menu dropdown-menu-lg-right shadow animated--grow-in m-0"
+                     aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Profile
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/user/schedulehistory">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Schedule History
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="@Url.Action("Logout","user")">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout
+                    </a>
+
+                </div>
+            </li>
+        }
+    </ul>
+</div>

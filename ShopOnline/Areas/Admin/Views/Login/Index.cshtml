@@ -1,0 +1,132 @@
+﻿
+@{
+    Layout = null;
+}
+@model ShopOnline.Areas.Admin.Data.LoginModel
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.ico" type="image/ico" />
+
+    <title>Gentelella Alela! | </title>
+
+    <!-- Bootstrap -->
+    <link href="~/Assets/admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/Assets/admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/Assets/admin/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/Assets/admin/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="~/Assets/admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="~/Assets/admin/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/Assets/admin/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="~/Assets/admin/build/css/custom.min.css" rel="stylesheet">
+    <style>
+        .col-lg-6 d-none d-lg-block bg-login-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden
+        }
+
+            .col-lg-6 d-none d-lg-block bg-login-image img {
+                flex-shrink: 0;
+                min-width: 100%;
+                min-height: 100%
+            }
+
+        .col-lg-6 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class=" d-flex justify-content-center container">
+
+        <!-- Outer Row -->
+        <div class="row">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                            <img src="~/Assets/Client/images/login-image.jpg" class="img-responsive" style="width:100%;height:100%"/>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    
+                                        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                                        {
+                                            
+                                            @Html.ValidationSummary(false, "", "error")
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(model => model.Username, new
+                                           {
+                                               @class = "form-control form-control-user",
+                                               @placeholder = "Username",
+                                               @autofocus = "autofocus"
+                                               
+                                           })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(model => model.Password, new
+                                            {
+                                                @class = "form-control form-control-user",
+                                                @placeholder = "Password",
+                                                @type = "password"
+                                            })
+                                            </div>
+                                           
+                                            <button type="submit" class="btn btn-primary btn-user btn-block">
+                                                Login
+                                            </button>
+                                            
+                                        }                               
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Assets/Admin/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Assets/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/Assets/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/Assets/Admin/js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>

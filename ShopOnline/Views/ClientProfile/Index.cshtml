@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    
+
+                    <div class="clearfix"></div>
+
+                    <!-- menu profile quick info -->
+                    
+                    <!-- /menu profile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                <li>
+                                    <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="profile.html">Profile Information</a></li>
+                                        <li><a href="historySchedule.html">Schedule Information</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <!--<div class="top_nav">
+                <div class="nav_menu">
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <nav class="nav navbar-nav">
+                        <ul class=" navbar-right">
+                            <li class="nav-item dropdown open" style="padding-left: 15px;">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="images/img.jpg" alt="">John Doe
+                                </a>
+                                <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="javascript:;"> Profile</a>
+                                    <a class="dropdown-item" href="javascript:;">
+                                        <span class="badge bg-red pull-right">50%</span>
+                                        <span>Settings</span>
+                                    </a>
+                                    <a class="dropdown-item" href="javascript:;">Help</a>
+                                    <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>-->
+            <!-- /top navigation -->
+            <!-- page content -->
+            @*<div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>Information Customer</h3>
+                        </div>
+
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5  form-group pull-right top_search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">Go!</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 ">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Information</h2>
+
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <br />
+                                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="Full-name">
+                                                Full Name <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input type="text" id="Full-name" required="required" class="form-control ">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="phone-number">
+                                                Phone Number <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input type="text" id="phone-number" name="phone-number" required="required" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label for="address" class="col-form-label col-md-3 col-sm-3 label-align">Address</label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input id="Address" class="form-control" type="text" name="middle-name">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label for="Email" class="col-form-label col-md-3 col-sm-3 label-align">Email</label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input id="Email" class="form-control" type="text" name="Email">
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align">Gender</label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <div id="gender" class="btn-group" data-toggle="buttons">
+                                                    <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                        <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Male &nbsp;
+                                                    </label>
+                                                    <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                        <input type="radio" name="gender" value="female" class="join-btn"> Female
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3 label-align">
+                                                Date Of Birth <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <input id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                                <script>
+													function timeFunctionLong(input) {
+														setTimeout(function() {
+															input.type = 'text';
+														}, 60000);
+													}
+                                                </script>
+                                            </div>
+                                        </div>
+                                        <div class="ln_solid"></div>
+                                        <div class="item form-group">
+                                            <div class="col-md-6 col-sm-6 offset-md-3">
+                                                <button class="btn btn-primary" type="button">Cancel</button>
+                                                <button class="btn btn-primary" type="reset">Reset</button>
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>*@
+            <!-- /page content -->
+            <!-- footer content -->
+
+            <!-- /footer content -->
+        </div>
+    </div>
+
+    
+
+
+
+
+

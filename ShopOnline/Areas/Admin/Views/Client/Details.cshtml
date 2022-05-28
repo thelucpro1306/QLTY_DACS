@@ -1,0 +1,163 @@
+﻿@model List<Model.VIewModel.MedicalFormOfClient>
+@using PagedList.Mvc
+@{
+    var client = (Model.EF.Client)ViewBag.client;
+    ViewBag.Title = client.Name;
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Header{
+    Deltais Client
+}
+@{
+    var a = "Male";
+
+    if (client.gender != true)
+    {
+        a = "Female";
+    }
+}
+<style>
+    dt {
+        color: black;
+        font-size: large
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class=" col-md-2">
+            <div>
+                <h3 class="d-flex justify-content-center"> Client information</h3>               
+                <dl class="dl-horizontal">
+                    <dt>
+                        Name
+                    </dt>
+
+                    <dd>
+                        @Html.Label(client.Name)
+                    </dd>
+
+                    <dt>
+                        Dob
+                    </dt>
+
+                    <dd>
+                        @Html.Label(((DateTime)client.dob).ToString("MM/dd/yyyy"))
+                    </dd>
+
+                    <dt>
+                        Gender
+                    </dt>
+
+                    <dd>
+                        @Html.Label(a)
+                    </dd>
+
+                    <dt>
+                        Email
+                    </dt>
+
+                    <dd>
+                        @client.email
+                    </dd>
+
+                    <dt>
+                        Phone Number
+                    </dt>
+
+                    <dd>
+                        @Html.Label(client.Phone)
+                    </dd>
+
+                    <dt>
+                        Address
+                    </dt>
+
+                    <dd>
+                        @Html.Label(client.Address)
+                    </dd>
+
+                </dl>
+            </div>
+
+        </div>
+        <div class="col-md-8 border border-primary ">
+            <h3 class="d-flex justify-content-center">List Medical Examination Form</h3>
+            <hr />
+            
+            <button  class="btn btn-primary "><a style="color:white" href="#">Create</a></button>
+            <div>
+                <table class="table table-striped table-bordered table-hover">
+                    <tr class="align-content-center">
+                        <th>
+                            PetName
+
+                        </th>
+                        <th>
+                            Weight
+                        </th>
+                        <th>
+                            Hair Color
+                        </th>
+                        <th>
+                            Species
+                        </th>
+                        <th>
+                            Pet Gender
+                        </th>
+                        <th>
+                            Image
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        var Pgender = "Male";
+                        if (item.petGender != true)
+                        {
+                            Pgender = "Female";
+                        }
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PetName)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.petWeight)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HairColor)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Species)
+                            </td>
+                            <td>
+                                @Html.Label(Pgender)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Image)
+                            </td>
+
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Form_Id }, new { @class = "pl-3 pr-4 mr-1 btn btn-primary", })
+                                @Html.ActionLink("Details", "Details", new { id = item.Form_Id }, new { @class = "mr-1 btn btn-success", })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Form_Id, }, new { @class = "btn btn-secondary", })
+
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+
