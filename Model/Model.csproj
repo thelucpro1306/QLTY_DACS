@@ -68,6 +68,7 @@
     <Compile Include="DAO\ClientDao.cs" />
     <Compile Include="DAO\DoctorDao.cs" />
     <Compile Include="DAO\MenuDao.cs" />
+    <Compile Include="DAO\ServicesDao.cs" />
     <Compile Include="DAO\UserDao.cs" />
     <Compile Include="EF\About.cs" />
     <Compile Include="EF\Apointment.cs" />

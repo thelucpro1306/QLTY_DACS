@@ -30,6 +30,9 @@
             <li class="nav-item">
                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sắp tới</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Hôm nay</a>
+            </li>
 
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -38,7 +41,12 @@
                     @foreach (var item in Model)
                     {
 
-                        if (item.BookingDate < DateTime.Now)
+                        DateTime startTime = item.BookingDate.ToUniversalTime();
+                        DateTime finishTime = DateTime.Now.ToUniversalTime();
+
+                        int res = DateTime.Compare(startTime, finishTime);
+
+                        if (res < 0)
                         {
                             <div class="schedule-card" style="height: fit-content; border-radius: 10px;">
 
@@ -63,21 +71,56 @@
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="card-schedule" style="width: 100%; gap: 20px; padding-left: 30px; box-sizing: border-box;">
-                    @foreach (var item in Model)
+                    @foreach (var items in Model)
                     {
+                        DateTime startTime = items.BookingDate;
+                        DateTime finishTime = DateTime.Now;
 
-                        if (item.BookingDate >= DateTime.Now)
+                        int res = DateTime.Compare(startTime, finishTime);
+
+                        if (res > 0)
                         {
                             <div class="schedule-card" style="height: fit-content; border-radius: 10px;">
 
                                 <div class="container" style="width: 300px; height: 350px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing:border-box">
-                                    <img class="Image_icon" src="~/Assets/Client/images/@item.Servicess.Image" alt="@item.Servicess.Name" style="width: 50%" />
+                                    <img class="Image_icon" src="~/Assets/Client/images/@items.Servicess.Image" alt="@items.Servicess.Name" style="width: 50%" />
                                     <h4>
-                                        @item.Servicess.Name
+                                        @items.Servicess.Name
                                     </h4>
-                                    Ngày đặt: @Html.Label(((DateTime)item.BookingDate).ToString("MM/dd/yyyy"))
-                                    Giờ đặt: Ca @item.BookingTime
-                                    <a href="@Url.Action("Details","Appointment",new {id = item.Id})">
+                                    Ngày đặt: @Html.Label(((DateTime)items.BookingDate).ToString("MM/dd/yyyy"))
+                                    Giờ đặt: Ca @items.BookingTime
+                                    <a href="@Url.Action("Details","Appointment",new {id = items.Id})">
+                                        <p>
+                                            Read more...
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="card-schedule" style="width: 100%; gap: 20px; padding-left: 30px; box-sizing: border-box;">
+                    @foreach (var items in Model)
+                    {
+                        DateTime startTime = items.BookingDate;
+                        DateTime finishTime = DateTime.Now;
+
+                        int res = DateTime.Compare(startTime, finishTime);
+
+                        if (res == 0)
+                        {
+                            <div class="schedule-card" style="height: fit-content; border-radius: 10px;">
+
+                                <div class="container" style="width: 300px; height: 350px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing:border-box">
+                                    <img class="Image_icon" src="~/Assets/Client/images/@items.Servicess.Image" alt="@items.Servicess.Name" style="width: 50%" />
+                                    <h4>
+                                        @items.Servicess.Name
+                                    </h4>
+                                    Ngày đặt: @Html.Label(((DateTime)items.BookingDate).ToString("MM/dd/yyyy"))
+                                    Giờ đặt: Ca @items.BookingTime
+                                    <a href="@Url.Action("Details","Appointment",new {id = items.Id})">
                                         <p>
                                             Read more...
                                         </p>

@@ -26,6 +26,10 @@ namespace ShopOnline.Controllers
         public ActionResult Index(Apointment model)
         {
             var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
+            if(session == null)
+            {
+                return RedirectToAction("Login", "user");
+            }
             var client = new UserDao().getClientById(session.ID);
             if (ModelState.IsValid)
             {

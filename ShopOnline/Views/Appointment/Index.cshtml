@@ -1,6 +1,8 @@
 ﻿@model Model.EF.Apointment
 @{
+    var id = (Model.EF.Servicess)ViewBag.id;
     ViewBag.Title = "Index";
+    
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br />
@@ -45,33 +47,40 @@
 <div class="container">
     <div id="page-section" class="page-section">
         <div class="container">
-            <h1 class="text-center wow fadeInUp" style="font-size:40px">Đặt lịch khám</h1>
+            <h1 class="text-center wow fadeInUp" style="font-size:40px"><strong>Đặt lịch khám</strong> </h1>
+            <style>
+                .main-form .form-control{
+                    font-size:20px;
+                }
+            </style>
             @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "main-form" }))
             {
                 @*@Html.ValidationSummary(false, "", new { @class = "text-danger" })*@
                 <div class="row mt-5 " >
                     <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
                         @*<input type="text" class="form-control" placeholder="Full name">*@
-                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Full name" })
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Họ và tên" })
                         @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                     </div>
                     <div class="col-12 col-sm-6 py-2 wow fadeInRight">
                         @*<input type="text" class="form-control" placeholder="Email address..">*@
-                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email address", @type = "email" })
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Địa chỉ Email", @type = "email" })
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
                     <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
                         @Html.TextBoxFor(model => model.BookingDate, new { @class = "form-control", @type = "date" })
-                        @Html.ValidationMessageFor(model => model.BookingDate, "Please, check your clinic date(the date must be higher than the present day)", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.BookingDate, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-                        @Html.DropDownList("ServicesId", new SelectList(Model.list, "Id", "Name"), new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.ServicesId, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @type = "text", @placeholder = "Số điện thoại" })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        
                     </div>
                     <div class="m-1 form-group row">
                         <div class="m-1 form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            @*<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked value="1">*@
+                            @Html.RadioButtonFor(model=>model.BookingTime, new {@class = "form-check-input", @type = "radio", @name= "flexRadioDefault", @id= "flexRadioDefault2",@value ="1" })
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Ca 1 
                             </label>
@@ -98,11 +107,19 @@
                         </div>
                     </div>
                     <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @type = "text", @placeholder = "Phone number" })
-                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        @if (id == null)
+                        {
+                            @Html.DropDownList("ServicesId", new SelectList(Model.list, "Id", "Name"), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ServicesId, "", new { @class = "text-danger" })
+                        }
+                        else
+                        {
+                            @Html.Label("Dịch vụ đã chọn: " + id.Name, new { @class = "form-control" })
+                            
+                        }
                     </div>
                     <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                        @Html.TextAreaFor(model => model.Note, new { @class = "form-control", @name = "message", @rows = 6, @placeholder = "Enter message..." })
+                        @Html.TextAreaFor(model => model.Note, new { @class = "form-control", @name = "message", @rows = 6, @placeholder = "Ghi chú thêm một số thông tin ở đây..." })
                     </div>
                 </div>
                 <button type="submit" class="mt-3 btn btn-primary col-md-12 wow zoomIn">Submit Request</button>

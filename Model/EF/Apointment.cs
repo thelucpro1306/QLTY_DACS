@@ -11,7 +11,7 @@ namespace Model.EF
     {
         public long Id { get; set; }
 
-        [Column(TypeName = "date")]
+        
         public DateTime BookingDate { get; set; }
 
         public long? BookingTime { get; set; }

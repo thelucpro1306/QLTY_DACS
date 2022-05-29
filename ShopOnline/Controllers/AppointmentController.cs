@@ -12,18 +12,24 @@ namespace ShopOnline.Controllers
     {
         OnlineShopDBContext context = new OnlineShopDBContext();
         // GET: Appointment
-        public ActionResult Index()
+        public ActionResult Index(long? id)
         {
             Apointment apointment = new Apointment();
             apointment.list = context.Servicesses.ToList();
+            var dao = new ServicesDao().GetServicessById(id);
+            ViewBag.id = dao;    
             return View(apointment);
             
         }
 
         [HttpPost]
-        public ActionResult Index(Apointment model)
+        public ActionResult Index( Apointment model)
         {
             var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
+            if(session == null)
+            {
+                return RedirectToAction("login", "user");
+            }
             var client = new UserDao().getClientById(session.ID);
             if (ModelState.IsValid)
             {
@@ -36,7 +42,14 @@ namespace ShopOnline.Controllers
                 appointmentModel.BookingDate = model.BookingDate;
                 appointmentModel.BookingTime = model.BookingTime;
                 appointmentModel.DateCreate = DateTime.Now;
-                appointmentModel.ServicesId = model.ServicesId;
+                //if(idService!= null)
+                //{
+                //    appointmentModel.ServicesId = idService;
+                //}
+                //else
+                //{
+                    appointmentModel.ServicesId = model.ServicesId;
+                //}
                 appointmentModel.ClientID = client.id;
                 model.list = context.Servicesses.ToList();
                 var dt = model.BookingDate;
@@ -44,22 +57,23 @@ namespace ShopOnline.Controllers
                 var res = DateTime.Compare((DateTime)dt, dtnow);
                 if (res < 0 || res == 0)
                 {
-                    ModelState.AddModelError("", "please, check your clinic date ( the date must be higher than the present day) ");
-                    return View(model);
+                    ModelState.AddModelError("", "please, check your clinic date" +
+                        " ( the date must be higher than the present day) ");
+                    return RedirectToAction("Index","Login");
                 }
                 AppoimentDao dao = new AppoimentDao();
                 var rs = dao.Insert(appointmentModel);
                 if (rs > 0)
                 {
                     ViewBag.Success = "Success!";
-                    return Redirect("#page-section");
+                    RedirectToAction("Index", "Thanks");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Error");
                 }
             }
-            return View("Index");
+            return View(model);
 
         }
 
