@@ -17,13 +17,14 @@ namespace ShopOnline.Controllers
             Apointment apointment = new Apointment();
             apointment.list = context.Servicesses.ToList();
             var dao = new ServicesDao().GetServicessById(id);
-            ViewBag.id = dao;    
+            ViewBag.id = dao; 
+            TempData["Id"] = id;
             return View(apointment);
             
         }
 
         [HttpPost]
-        public ActionResult Index( Apointment model)
+        public ActionResult Index(Apointment model)
         {
             var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
             if(session == null)
@@ -42,14 +43,14 @@ namespace ShopOnline.Controllers
                 appointmentModel.BookingDate = model.BookingDate;
                 appointmentModel.BookingTime = model.BookingTime;
                 appointmentModel.DateCreate = DateTime.Now;
-                //if(idService!= null)
-                //{
-                //    appointmentModel.ServicesId = idService;
-                //}
-                //else
-                //{
+                if ((long?)TempData["Id"] != null)
+                {
+                    appointmentModel.ServicesId = (long?)TempData["Id"];
+                }
+                else
+                {
                     appointmentModel.ServicesId = model.ServicesId;
-                //}
+                }
                 appointmentModel.ClientID = client.id;
                 model.list = context.Servicesses.ToList();
                 var dt = model.BookingDate;

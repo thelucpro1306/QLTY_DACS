@@ -10,8 +10,7 @@ namespace Model.EF
     public partial class Apointment
     {
         public long Id { get; set; }
-
-        
+       
         public DateTime BookingDate { get; set; }
 
         public long? BookingTime { get; set; }
