@@ -1,5 +1,6 @@
 ﻿using Model.DAO;
 using Model.EF;
+using ShopOnline.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,10 @@ namespace ShopOnline.Controllers
             Apointment apointment = new Apointment();
             apointment.list = context.Servicesses.ToList();
             var dao = new ServicesDao().GetServicessById(id);
-            ViewBag.id = dao; 
-            TempData["Id"] = id;
+            ViewBag.id = dao;
+            var ServicesId = new Services();
+            ServicesId.ID = id;
+            Session.Add(ConstantsCommon.SERVICES_SESSION, ServicesId);
             return View(apointment);
             
         }
@@ -27,7 +30,8 @@ namespace ShopOnline.Controllers
         public ActionResult Index(Apointment model)
         {
             var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
-            if(session == null)
+            var ServicesId = (ShopOnline.Common.Services)Session[ConstantsCommon.SERVICES_SESSION];
+            if (session == null)
             {
                 return RedirectToAction("login", "user");
             }
@@ -43,9 +47,9 @@ namespace ShopOnline.Controllers
                 appointmentModel.BookingDate = model.BookingDate;
                 appointmentModel.BookingTime = model.BookingTime;
                 appointmentModel.DateCreate = DateTime.Now;
-                if ((long?)TempData["Id"] != null)
+                if (ServicesId.ID != null)
                 {
-                    appointmentModel.ServicesId = (long?)TempData["Id"];
+                    appointmentModel.ServicesId = ServicesId.ID;
                 }
                 else
                 {
@@ -60,7 +64,7 @@ namespace ShopOnline.Controllers
                 {
                     ModelState.AddModelError("", "please, check your clinic date" +
                         " ( the date must be higher than the present day) ");
-                    return RedirectToAction("Index","Login");
+                    return View("Index", model);
                 }
                 AppoimentDao dao = new AppoimentDao();
                 var rs = dao.Insert(appointmentModel);
