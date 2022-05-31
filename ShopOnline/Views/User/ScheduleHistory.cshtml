@@ -6,58 +6,61 @@
 }
 
 <!--nav section-->
-<div class="container-fluid padding">
+<!--<div class="container-fluid padding">
     <div class="row welcome text-center">
         <div class="col-12">
             <h1 class="display-4">What We Schedule</h1>
-        </div>
+        </div>-->
         <!-- Horizontal Rule -->
-        <div class="col-12">
-            <p>Pet Health Clinic offers a wide variety of professional services for your pet including general surgery, nutritional counseling, patient monitoring, dentistry, grooming, vaccinations, and much more! If you're ready to see our expert veterinary team in Easton, call Pet Health Clinic today at 410-820-4286 or make an appointment now.</p>
+        <!--<div class="col-12">
+            <p>Pet Health Clinic offers a wide variety of professional services
+            for your pet including general surgery, nutritional counseling, patient monitoring,
+            dentistry, grooming, vaccinations, and much more!
+            If you're ready to see our expert veterinary team in Easton,
+            call Pet Health Clinic today at 410-820-4286 or make an appointment now.</p>
         </div>
     </div>
     <hr>
-</div>
+</div>-->
 <!--end nav section -->
 <div class="ml-5 x_panel">
 
     <div class="x_content">
 
-        <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
+        <ul style="font-size:24px; margin-top:30px" class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">Đã qua</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sắp tới</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Hôm nay</a>
-            </li>
+            
 
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div class="card-schedule" style="width: 100%; gap: 20px; padding-left: 73px; box-sizing: border-box;">
                     @foreach (var item in Model)
-                    {
+                                {
 
-                        DateTime startTime = item.BookingDate.ToUniversalTime();
-                        DateTime finishTime = DateTime.Now.ToUniversalTime();
+                                    DateTime startTime = item.BookingDate.ToUniversalTime();
+                                    DateTime finishTime = DateTime.Now.ToUniversalTime();
 
-                        int res = DateTime.Compare(startTime, finishTime);
+                                    int res = DateTime.Compare(startTime, finishTime);
+                                    var a = ShopOnline.Common.ShiftToTime.shiftToTime(item.BookingTime);
+                                    if (res < 0)
+                                    {
 
-                        if (res < 0)
-                        {
                             <div class="schedule-card" style="height: fit-content; border-radius: 10px;">
 
-                                <div class="container" style="width: 300px; height: 350px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing:border-box">
+                                <div class="container" style="width: 300px; height: 400px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing:border-box">
                                     <img class="Image_icon" src="~/Assets/Client/images/@item.Servicess.Image" alt="Tiem ngua" style="width: 50%" />
                                     <h4>
                                         @item.Servicess.Name
                                     </h4>
                                     @Html.Label(((DateTime)item.BookingDate).ToString("MM/dd/yyyy"))
-                                    Ca @item.BookingTime
-                                    <a href="#">
+                                    Giờ đặt: <strong>@Html.Label(a)</strong>
+                                    <a href="@Url.Action("Details","Appointment",new {id = item.Id})">
                                         <p>
                                             Read more...
                                         </p>
@@ -75,20 +78,20 @@
                     {
                         DateTime startTime = items.BookingDate;
                         DateTime finishTime = DateTime.Now;
-
+                        var a = ShopOnline.Common.ShiftToTime.shiftToTime(items.BookingTime);
                         int res = DateTime.Compare(startTime, finishTime);
 
-                        if (res > 0)
+                        if (res >= 0)
                         {
                             <div class="schedule-card" style="height: fit-content; border-radius: 10px;">
 
-                                <div class="container" style="width: 300px; height: 350px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing:border-box">
+                                <div class="container" style="width: 300px; height: 400px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing: border-box">
                                     <img class="Image_icon" src="~/Assets/Client/images/@items.Servicess.Image" alt="@items.Servicess.Name" style="width: 50%" />
-                                    <h4>
+                                    <h4 style="font-weight:bold">
                                         @items.Servicess.Name
                                     </h4>
-                                    Ngày đặt: @Html.Label(((DateTime)items.BookingDate).ToString("MM/dd/yyyy"))
-                                    Giờ đặt: Ca @items.BookingTime
+                                    Ngày đặt: <h5 style="font-weight:bold">@Html.Label(((DateTime)items.BookingDate).ToString("MM/dd/yyyy"))</h5>
+                                    Giờ đặt: <strong>@Html.Label(a)</strong>
                                     <a href="@Url.Action("Details","Appointment",new {id = items.Id})">
                                         <p>
                                             Read more...
@@ -100,37 +103,7 @@
                     }
                 </div>
             </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div class="card-schedule" style="width: 100%; gap: 20px; padding-left: 30px; box-sizing: border-box;">
-                    @foreach (var items in Model)
-                    {
-                        DateTime startTime = items.BookingDate;
-                        DateTime finishTime = DateTime.Now;
 
-                        int res = DateTime.Compare(startTime, finishTime);
-
-                        if (res == 0)
-                        {
-                            <div class="schedule-card" style="height: fit-content; border-radius: 10px;">
-
-                                <div class="container" style="width: 300px; height: 350px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing:border-box">
-                                    <img class="Image_icon" src="~/Assets/Client/images/@items.Servicess.Image" alt="@items.Servicess.Name" style="width: 50%" />
-                                    <h4>
-                                        @items.Servicess.Name
-                                    </h4>
-                                    Ngày đặt: @Html.Label(((DateTime)items.BookingDate).ToString("MM/dd/yyyy"))
-                                    Giờ đặt: Ca @items.BookingTime
-                                    <a href="@Url.Action("Details","Appointment",new {id = items.Id})">
-                                        <p>
-                                            Read more...
-                                        </p>
-                                    </a>
-                                </div>
-                            </div>
-                        }
-                    }
-                </div>
-            </div>
 
         </div>
     </div>

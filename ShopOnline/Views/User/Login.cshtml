@@ -42,12 +42,10 @@
                         @Html.TextBoxFor(model => model.Password, new { @type = "password", @class = "form-control", @placeholder = "Password" })
                         @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                     </div>
-                    @*<div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Check me out</label>
-                    </div>*@
+                    
                     <button type="submit" class="btn btn-success btn-block my-3">Login</button>
                 }
+                @Html.ActionLink("Chưa có tài khoản? Đăng ký ngay","register","user", new {@class = "col-6"})
             </div>
         </div>
     </div>

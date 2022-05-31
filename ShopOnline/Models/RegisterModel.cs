@@ -27,6 +27,9 @@ namespace ShopOnline.Models
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Required")]
         public string Email { get; set; }
+        [Display(Name = "Phone")]
+        [Required(ErrorMessage = "Required")]
+        public string Phone { get; set; }
 
 
     }

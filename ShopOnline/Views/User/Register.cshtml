@@ -48,30 +48,34 @@
                             </div>
                             @using (Html.BeginForm("Register", "user", FormMethod.Post, new { @class = "user" }))
                             {
-                                
+
                                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                                 <div class="form-group">
-                                    @Html.TextBoxFor(model => model.Username, new { @class = "form-control form-control-user", @placeholder = "Username" })
+                                    @Html.TextBoxFor(model => model.Username, new { @class = "form-control form-control-user", @placeholder = "Tên tài khoản" })
                                     @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control form-control-user", @type = "password", @placeholder = "Password" })
+                                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control form-control-user", @type = "password", @placeholder = "Mật khẩu" })
                                         @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
                                     </div>
                                     <div class="col-sm-6">
-                                        @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control form-control-user", @type = "password", @placeholder = "Confirm Password" })
+                                        @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control form-control-user", @type = "password", @placeholder = "Xác nhận mật khẩu" })
                                         @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-control-user", @type = "email", @placeholder = "Email" })
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-control-user", @type = "email", @placeholder = "Địa chỉ email" })
                                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
+                                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control form-control-user", @type = "Phone", @placeholder = "Số điện thoại" })
+                                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
 
-                                    @Html.TextBoxFor(model => model.name, new { @class = "form-control form-control-user", @placeholder = "Full name" })
+                                    @Html.TextBoxFor(model => model.name, new { @class = "form-control form-control-user", @placeholder = "Họ tên" })
                                     @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="m-3" style="display:flex; justify-content:center">
@@ -85,18 +89,18 @@
                                         Register
                                     </button>
                                 </div>
-                                <hr>
+                                @*<hr>
                                 <a href="index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google
                                 </a>
                                 <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                     <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
+                                </a>*@
                             }
                             <hr>
-                            <div class="text-center">
+                            @*<div class="text-center">
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
+                            </div>*@
                             <div class="text-center">
                                 <a class="small" href="login.html">Already have an account? Login!</a>
                             </div>

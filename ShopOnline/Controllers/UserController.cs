@@ -83,6 +83,7 @@ namespace ShopOnline.Controllers
                     user.Email = model.Email;
                     user.CreateTime = DateTime.Now;
                     user.Status = true;
+                    user.Phone = model.Phone;
                     client.dob = DateTime.Now;
                     var result = dao.Insert(user);
                     if(result > 0)
@@ -94,7 +95,7 @@ namespace ShopOnline.Controllers
                         client.Phone = user.Phone;
                         client.UserId = result;
                         daoC.Insert(client);
-                        return RedirectToAction("Index","Home");
+                        return RedirectToAction("Login","user");
                     }
                     else
                     {

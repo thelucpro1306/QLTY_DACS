@@ -6,7 +6,7 @@ using System.Web;
 namespace ShopOnline.Common
 {
     [Serializable]
-    public class Services
+    public class UserServices
     {
         public long? ID { get; set; }
        

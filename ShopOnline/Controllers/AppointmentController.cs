@@ -15,13 +15,22 @@ namespace ShopOnline.Controllers
         // GET: Appointment
         public ActionResult Index(long? id)
         {
+            var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
+            if (session == null)
+            {
+                return RedirectToAction("login", "user");
+            }
             Apointment apointment = new Apointment();
             apointment.list = context.Servicesses.ToList();
-            var dao = new ServicesDao().GetServicessById(id);
-            ViewBag.id = dao;
-            var ServicesId = new Services();
-            ServicesId.ID = id;
-            Session.Add(ConstantsCommon.SERVICES_SESSION, ServicesId);
+            if(id.HasValue)
+            {
+                var dao = new ServicesDao().GetServicessById(id);
+                Session[ConstantsCommon.SERVICES_SESSION] = null;
+                ViewBag.id = dao;
+                var ServicesId = new UserServices();
+                ServicesId.ID = dao.id;
+                Session.Add(ConstantsCommon.SERVICES_SESSION, ServicesId);
+            }
             return View(apointment);
             
         }
@@ -30,7 +39,7 @@ namespace ShopOnline.Controllers
         public ActionResult Index(Apointment model)
         {
             var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
-            var ServicesId = (ShopOnline.Common.Services)Session[ConstantsCommon.SERVICES_SESSION];
+            var ServicesId = (ShopOnline.Common.UserServices)Session[ConstantsCommon.SERVICES_SESSION];
             if (session == null)
             {
                 return RedirectToAction("login", "user");
@@ -47,7 +56,7 @@ namespace ShopOnline.Controllers
                 appointmentModel.BookingDate = model.BookingDate;
                 appointmentModel.BookingTime = model.BookingTime;
                 appointmentModel.DateCreate = DateTime.Now;
-                if (ServicesId.ID != null)
+                if (ServicesId != null)
                 {
                     appointmentModel.ServicesId = ServicesId.ID;
                 }
@@ -70,8 +79,10 @@ namespace ShopOnline.Controllers
                 var rs = dao.Insert(appointmentModel);
                 if (rs > 0)
                 {
+
                     ViewBag.Success = "Success!";
-                    RedirectToAction("Index", "Thanks");
+                    Session[ConstantsCommon.SERVICES_SESSION] = null;
+                    return RedirectToAction("Index", "Thanks");
                 }
                 else
                 {
