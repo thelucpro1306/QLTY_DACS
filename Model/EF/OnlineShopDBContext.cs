@@ -59,10 +59,6 @@ namespace Model.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<Client>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Client>()
                 .Property(e => e.email)
                 .IsUnicode(false);
 
@@ -164,8 +160,8 @@ namespace Model.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<Servicess>()
-                .Property(e => e.Name)
-                .IsFixedLength();
+                .Property(e => e.Image)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Servicess>()
                 .HasMany(e => e.Apointments)

@@ -3,6 +3,7 @@ using Model.EF;
 using ShopOnline.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -75,6 +76,21 @@ namespace ShopOnline.Controllers
                         " ( the date must be higher than the present day) ");
                     return View("Index", model);
                 }
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/content/template/neworder.html"));
+                var servicess = new ServicesDao().GetServicessById(ServicesId.ID);
+
+                content = content.Replace("{{CustomerName}}", model.Name);
+                content = content.Replace("{{Phone}}", model.Phone);
+                content = content.Replace("{{Email}}", model.Email);
+                content = content.Replace("{{BookingDate}}", model.BookingDate.ToString());
+                content = content.Replace("{{BookingTime}}", model.BookingTime.ToString());
+                content = content.Replace("{{Servicess}}", servicess.Name);
+                content = content.Replace("{{Note}}", model.Note);
+                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+                
+                new MailHelper().SendMail(model.Email, "Pet Clinic", content);
+                new MailHelper().SendMail(toEmail, "Pet Clinic", content);
+
                 AppoimentDao dao = new AppoimentDao();
                 var rs = dao.Insert(appointmentModel);
                 if (rs > 0)

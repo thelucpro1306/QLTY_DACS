@@ -10,7 +10,7 @@ namespace Model.EF
     public partial class Apointment
     {
         public long Id { get; set; }
-       
+
         public DateTime BookingDate { get; set; }
 
         public long? BookingTime { get; set; }
@@ -40,8 +40,6 @@ namespace Model.EF
         public virtual Client Client { get; set; }
 
         public virtual Servicess Servicess { get; set; }
-
-        public virtual User User { get; set; }
 
         public List<Servicess> list = new List<Servicess>();
 
