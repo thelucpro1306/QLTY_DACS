@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,49 +9,51 @@ namespace ShopOnline.Controllers
 {
     public class ServiceController : Controller
     {
+        OnlineShopDBContext db = new OnlineShopDBContext();
         // GET: Service
         public ActionResult Index()
         {
-            return View();
+            var model = db.Servicesses.ToList();
+            return View(model);
         }
 
-        public ActionResult SurgicalServices()
-        {
-            return View();
-        }
-
-        public ActionResult PreventativeServices()
-        {
-            return View();
-        }
-        public ActionResult AdditionalServices()
-        {
-            return View();
-        }
-        public ActionResult PatientMonitoring()
-        {
-            return View();
-        }
-        public ActionResult PetWellness()
+        public ActionResult Service_3()
         {
             return View();
         }
 
-        public ActionResult NutritionalCounselings()
+        public ActionResult Service_1()
         {
             return View();
         }
-        public ActionResult Grooming()
+        public ActionResult Service_2()
         {
             return View();
         }
-        public ActionResult ScreeningTest()
+        public ActionResult Service_4()
         {
             return View();
         }
-        public ActionResult PetSupplies()
+        public ActionResult Service_5()
         {
             return View();
         }
+
+        public ActionResult Service_6()
+        {
+            return View();
+        }
+        public ActionResult Service_7()
+        {
+            return View();
+        }
+        public ActionResult Service_8()
+        {
+            return View();
+        }
+        //public ActionResult PetSupplies()
+        //{
+        //    return View();
+        //}
     }
 }

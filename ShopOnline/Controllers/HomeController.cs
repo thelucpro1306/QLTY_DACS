@@ -37,6 +37,7 @@ namespace ShopOnline.Controllers
                 appointmentModel.Name = model.Name;
                 appointmentModel.Email = model.Email;
                 appointmentModel.Phone = model.Phone;
+                
                 appointmentModel.Note = model.Note;
                 appointmentModel.status = -1;
                 appointmentModel.BookingDate = model.BookingDate;

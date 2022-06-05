@@ -3,7 +3,6 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
 
 
 <!DOCTYPE html>
@@ -28,6 +27,11 @@
     <link href="~/Assets/Client/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 <body>
+
+
+
+
+
     <!--navigation-->
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid">
@@ -96,26 +100,67 @@
             </div>
         </div>
     </nav>
+    <div id="map" style="display:flex; justify-content:center;width:30%;height:30%">
+
+
+    </div>
+    <script>
+        // This example displays a marker at the center of Australia.
+        // When the user clicks the marker, an info window opens.
+        function initMap() {
+            const PetClinic = { lat: 10.801760831629508, lng: 106.71449572272891 }; 
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: PetClinic,
+            });
+            const contentString = "PetClinic"
+                ;
+            const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+            });
+            const marker = new google.maps.Marker({
+                position: PetClinic,
+                map,
+                title: "PetClinic",
+            });
+
+            marker.addListener("click", () => {
+                infowindow.open({
+                    anchor: marker,
+                    map,
+                    shouldFocus: true,
+                });
+            });
+        }
+
+        window.initMap = initMap;
+
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7tR_58Yr3wn0splkF22dNsQKbyOWsMoI&callback=initMap"></script>
+
+
+
+
 
     <div class="container-wrap">
         <div class="container main-content">
             <div class="col-lg-6">
-                
+
                 <img src="~/Assets/Client/images/Patient_1.PNG" class="img-fluid" />
             </div>
             <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
                 <h1>Nội khoa</h1>
                 <p>Đáp ứng nhu cầu về các hình thức chăm sóc sức khỏe thú cưng đa dạng của người nuôi động vật, bác sĩ thú y tại khoa khám bệnh luôn ý thức nâng cao năng lực thường xuyên bằng việc tham gia các chương trình đào tạo dài hạn hoặc ngắn hạn liên tục trong năm. Mục tiêu là cập nhật các kiến thức y khoa thú y một các hiện đại nhất, lựa chọn các phương pháp khám, thủ thuật hiệu quả, không gây stress thú cưng, các loại thuốc mới giảm thiểu phản ứng phụ.</p>
-                
-            
+
+
             </div>
         </div>
     </div>
     <div class="container-wrap">
         <div class="container main-content">
             <div class="col-lg-6">
-                
-                <img src="~/Assets/Client/images/patient_2.PNG" class="img-fluid"  />
+
+                <img src="~/Assets/Client/images/patient_2.PNG" class="img-fluid" />
             </div>
             <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
                 <h1>Ngoại khoa</h1>
@@ -161,16 +206,11 @@
                     <p>Weekend: 8am - 12am</p>
                 </div>
                 <div class="col-md-4">
-                    <hr class="light">
-                    <h5>Services</h5>
-                    <hr class="light">
-                    <p>Outsourcing</p>
-                    <p>Website development</p>
-                    <p>Mobile applications</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d489.8907153063094!2d106.7142154318889!3d10.801681791092479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a459cb43ab%3A0x6c3d29d370b52a7e!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgVFAuSENNIC0gSFVURUNI!5e0!3m2!1svi!2s!4v1654340281063!5m2!1svi!2s" width="400" height="300" style="border: 0; margin-top: 30px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="col-12">
                     <hr class="light-100">
-                    <h5>&copy; WebProject</h5>
+                    <h5>&copy; Q</h5>
                 </div>
             </div>
         </div>

@@ -64,7 +64,7 @@
     {
         <div class="schedule-card" style="height: fit-content; border-radius: 10px;">
 
-            <div class="container" style="width: 200px; height: 200px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing:border-box">
+            <div class="container" style="width: 200px; height: 260px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing:border-box">
                 <img class="Image_icon" src="~/Assets/Client/images/@item.Image" alt="@item.Name" style="width: 40%" />
                 <h4>
 
@@ -72,19 +72,25 @@
                 </h4>
                 @if (session == null)
                 {
-                    <a href="@Url.Action("Login","User")">
+                    <a href="@Url.Action("Service_"+item.id,"Service")">
                         <p>
-                            Read more...
+                            Xem thêm...
                         </p>
                     </a>
                 }
                 else
                 {
-                    <a href="@Url.Action("Index","Appointment",new {id = item.id})">
+                    <a href="@Url.Action("Service_"+item.id,"Service")">
                         <p>
-                            Read more...
+                            Xem thêm...
                         </p>
                     </a>
+                    <a href="@Url.Action("Index","Appointment",new {id = item.id})">
+                        <p>
+                            Đặt lịch ngay
+                        </p>
+                    </a>
+
                 }
             </div>
         </div>
@@ -118,11 +124,13 @@
             <hr />
             <div class=" welcome">
                 <h2>Xin chào <strong style="color:blue">@session.Name</strong></h2>
-                
-                <h3> Bạn đã đăng nhập thành công, ấn vào <strong> <a href="@Url.Action("Index","Appointment")">đây</a></strong> để đặt
-                lịch khám cho thú cưng của bạn</h3>
+
+                <h3>
+                    Bạn đã đăng nhập thành công, ấn vào <strong> <a href="@Url.Action("Index","Appointment")">đây</a></strong> để đặt
+                    lịch khám cho thú cưng của bạn
+                </h3>
                 <br />
-                
+
             </div>
         }
 

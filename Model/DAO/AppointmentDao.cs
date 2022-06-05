@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PagedList;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 namespace Model.DAO
 {
@@ -27,7 +28,7 @@ namespace Model.DAO
 
         public long Update(Apointment apointment)
         {
-            db.Entry(apointment).State = EntityState.Modified;
+            db.Apointments.AddOrUpdate(apointment);
             db.SaveChanges();
             return apointment.Id;
         }

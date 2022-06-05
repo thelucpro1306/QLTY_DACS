@@ -14081,19 +14081,19 @@
     <Content Include="Views\Thanks\Index.cshtml" />
     <Content Include="Views\User\UserProfile.cshtml" />
     <Content Include="Views\User\ScheduleHistory.cshtml" />
-    <Content Include="Views\Appointment\Details.cshtml" />
-    <Content Include="Views\Service\AdditionalServices.cshtml" />
-    <Content Include="Views\Service\Grooming.cshtml" />
-    <Content Include="Views\Service\Index.cshtml" />
-    <Content Include="Views\Service\NutritionalCounselings.cshtml" />
-    <Content Include="Views\Service\PatientMonitoring.cshtml" />
-    <Content Include="Views\Service\PetSupplies.cshtml" />
-    <Content Include="Views\Service\PetWellness.cshtml" />
-    <Content Include="Views\Service\PreventativeServices.cshtml" />
-    <Content Include="Views\Service\ScreeningTest.cshtml" />
-    <Content Include="Views\Service\SurgicalServices.cshtml" />
+    <Content Include="Views\Service\Service_8.cshtml" />
+    <Content Include="Views\Service\Service_4.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Service\Service_1.cshtml" />
+    <Content Include="Views\Service\Service_2.cshtml" />
+    <Content Include="Views\Service\Service_3.cshtml" />
+    <Content Include="Views\Service\Service_5.cshtml" />
+    <Content Include="Views\Service\Service_6.cshtml" />
+    <Content Include="Views\Service\Service_7.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Appointment\Details.cshtml" />
+    <Content Include="Views\Appointment\DetailsComing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
