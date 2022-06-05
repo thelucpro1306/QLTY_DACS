@@ -18,7 +18,7 @@ namespace Model.EF
 
         public long id { get; set; }
 
-        [StringLength(50)]
+        [StringLength(250)]
         public string Name { get; set; }
 
         public DateTime? dob { get; set; }

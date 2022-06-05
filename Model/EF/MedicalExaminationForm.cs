@@ -36,12 +36,17 @@ namespace Model.EF
 
         public string Image { get; set; }
 
+        public long? id_Appointment { get; set; }
+
+        public virtual Apointment Apointment { get; set; }
+
         public virtual Client Client { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeltailsMedicalForm> DeltailsMedicalForms { get; set; }
 
         public List<Client> list = new List<Client>();
+
 
     }
 }

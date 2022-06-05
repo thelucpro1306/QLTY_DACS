@@ -9,8 +9,14 @@ namespace Model.EF
     [Table("Apointment")]
     public partial class Apointment
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Apointment()
+        {
+            MedicalExaminationForms = new HashSet<MedicalExaminationForm>();
+        }
+
         public long Id { get; set; }
-       
+
         public DateTime BookingDate { get; set; }
 
         public long? BookingTime { get; set; }
@@ -41,7 +47,8 @@ namespace Model.EF
 
         public virtual Servicess Servicess { get; set; }
 
-        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MedicalExaminationForm> MedicalExaminationForms { get; set; }
 
         public List<Servicess> list = new List<Servicess>();
 

@@ -1,20 +1,18 @@
 ﻿@model Model.EF.Apointment
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "DetailsComing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section Header{
-    <h1>Details</h1>
-    }
+<h2>DetailsComing</h2>
 
 <div>
     <h4>Apointment</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Tên khách hàng
+            @Html.DisplayNameFor(model => model.Client.Name)
         </dt>
 
         <dd>
@@ -22,7 +20,7 @@
         </dd>
 
         <dt>
-            Tên dịch vụ
+            @Html.DisplayNameFor(model => model.Servicess.Name)
         </dt>
 
         <dd>
@@ -67,6 +65,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Userid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Userid)
         </dd>
 
         <dt>

@@ -1,110 +1,96 @@
-﻿@model Model.EF.Apointment
+﻿@model Model.EF.DeltailsMedicalForm
 
 @{
-    ViewBag.Title = "Details";
+
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+
 }
 
-<h2>Details</h2>
+<h2 class="mt-3 d-flex justify-content-center">Chi tiết lịch khám</h2>
+<br />
+<br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-2">
+            <div style="background-color: #f8f9fa;" class="  d-flex justify-content-lg-center flex-column">
+                <h4><strong>Chi tiết lịch đặt</strong></h4>
+                <hr />
+                <dl style="display:flex; flex-direction: column;" class=" dl-horizontal ">
+                    @{
+                        var bookingtime = ShopOnline.Common.ShiftToTime.shiftToTime(Model.MedicalExaminationForm.Apointment.BookingTime);
+                        var bookingDate = Model.MedicalExaminationForm.Apointment.BookingDate.ToString("MM/dd/yyyy");
+                    }
+                    <dt>
+                        <i class="fa fa-user"></i> Họ và tên
+                    </dt>
 
-<div class="mr-4">
-    <h4>Apointment</h4>
-    <hr />
-    <dl class="mr-4 dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Client.Name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MedicalExaminationForm.Apointment.Name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Client.Name)
-        </dd>
+                    <dt>
+                        Dịch vụ đã chọn
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Servicess.Name)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MedicalExaminationForm.Apointment.Servicess.Name)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Servicess.Name)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.User.UserName)
-        </dt>
+                    <dt>
+                        Ngày đặt
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.UserName)
-        </dd>
+                    <dd>
+                        @Html.Label(bookingDate)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BookingDate)
-        </dt>
+                    <dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookingDate)
-        </dd>
+                        Giờ đến khám
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BookingTime)
-        </dt>
+                    <dd>
+                        @Html.Label(bookingtime)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.BookingTime)
-        </dd>
+                    <dt>
+                        Ghi chú
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Note)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MedicalExaminationForm.Apointment.Note)
+                    </dd>
+                    <dt>
+                        Số điện thoại
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Note)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.MedicalExaminationForm.Apointment.Phone)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                    <dt>
+                        Địa chỉ Email
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.MedicalExaminationForm.Apointment.Email)
+                    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.status)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateCreate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateCreate)
-        </dd>
-
-    </dl>
+                </dl>
+            </div>
+        </div>
+        <div style="background-color: #f8f9fa;" class="col-xl-8 border border-bottom-light"></div>
+        <div style="background-color: #f8f9fa;" class="col-xl-2"></div>
+    </div>
 </div>
+
 <p>
-    @if (Model.BookingDate >= DateTime.Now)
+    @if (Model.MedicalExaminationForm.Apointment.BookingDate >= DateTime.Now)
     {
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) 
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MedicalExaminationForm.id_Appointment })
     }
 
 </p>

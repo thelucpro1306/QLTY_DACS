@@ -25,6 +25,10 @@ namespace Model.EF
         [StringLength(150)]
         public string Diagnose { get; set; }
 
+        public long? id_Doctor { get; set; }
+
+        public virtual Doctor Doctor { get; set; }
+
         public virtual illness illness { get; set; }
 
         public virtual MedicalExaminationForm MedicalExaminationForm { get; set; }

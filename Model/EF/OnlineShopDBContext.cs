@@ -54,12 +54,13 @@ namespace Model.EF
                 .Property(e => e.Email)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Apointment>()
+                .HasMany(e => e.MedicalExaminationForms)
+                .WithOptional(e => e.Apointment)
+                .HasForeignKey(e => e.id_Appointment);
+
             modelBuilder.Entity<Category>()
                 .Property(e => e.MetaTitle)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Client>()
-                .Property(e => e.Name)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Client>()
@@ -101,6 +102,11 @@ namespace Model.EF
             modelBuilder.Entity<Doctor>()
                 .Property(e => e.Email)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Doctor>()
+                .HasMany(e => e.DeltailsMedicalForms)
+                .WithOptional(e => e.Doctor)
+                .HasForeignKey(e => e.id_Doctor);
 
             modelBuilder.Entity<Faculty>()
                 .HasMany(e => e.Doctors)
@@ -164,8 +170,8 @@ namespace Model.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<Servicess>()
-                .Property(e => e.Name)
-                .IsFixedLength();
+                .Property(e => e.Image)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Servicess>()
                 .HasMany(e => e.Apointments)

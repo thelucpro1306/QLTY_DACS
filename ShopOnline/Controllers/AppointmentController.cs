@@ -3,6 +3,7 @@ using Model.EF;
 using ShopOnline.Common;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -75,6 +76,21 @@ namespace ShopOnline.Controllers
                         " ( the date must be higher than the present day) ");
                     return View("Index", model);
                 }
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/content/template/neworder.html"));
+                var servicess = new ServicesDao().GetServicessById(ServicesId.ID);
+
+                content = content.Replace("{{CustomerName}}", model.Name);
+                content = content.Replace("{{Phone}}", model.Phone);
+                content = content.Replace("{{Email}}", model.Email);
+                content = content.Replace("{{BookingDate}}", model.BookingDate.ToString());
+                content = content.Replace("{{BookingTime}}", model.BookingTime.ToString());
+                content = content.Replace("{{Servicess}}", servicess.Name);
+                content = content.Replace("{{Note}}", model.Note);
+                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
+                
+                new MailHelper().SendMail(model.Email, "Pet Clinic", content);
+                new MailHelper().SendMail(toEmail, "Pet Clinic", content);
+
                 AppoimentDao dao = new AppoimentDao();
                 var rs = dao.Insert(appointmentModel);
                 if (rs > 0)
@@ -95,61 +111,22 @@ namespace ShopOnline.Controllers
 
         public ActionResult Details(long id)
         {
-            var apointment = context.Apointments.Where(m=>m.Id == id).FirstOrDefault();
-            return View(apointment);
-        }
-
-        public ActionResult SurgicalServices()
-        {
-            Apointment apointment = new Apointment();
-            apointment.list = context.Servicesses.ToList();
-            return View(apointment);
-
-        }
-
-        [HttpPost]
-        public ActionResult SurgicalServices(Apointment model)
-        {
-            var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
-            var client = new UserDao().getClientById(session.ID);
-            if (ModelState.IsValid)
+            var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];           
+            if (session == null)
             {
-                Apointment appointmentModel = new Apointment();
-                appointmentModel.Name = model.Name;
-                appointmentModel.Email = model.Email;
-                appointmentModel.Phone = model.Phone;
-                appointmentModel.Note = model.Note;
-                appointmentModel.status = -1;
-                appointmentModel.BookingDate = model.BookingDate;
-                appointmentModel.BookingTime = model.BookingTime;
-                appointmentModel.DateCreate = DateTime.Now;
-                appointmentModel.ServicesId = 6;
-                appointmentModel.ClientID = client.id;
-                model.list = context.Servicesses.ToList();
-                var dt = model.BookingDate;
-                var dtnow = DateTime.Now;
-                var res = DateTime.Compare((DateTime)dt, dtnow);
-                if (res < 0 || res == 0)
-                {
-                    ModelState.AddModelError("", "please, check your clinic date ( the date must be higher than the present day) ");
-                    return View(model);
-                }
-                AppoimentDao dao = new AppoimentDao();
-                var rs = dao.Insert(appointmentModel);
-                if (rs > 0)
-                {
-                    ViewBag.Success = "Success!";
-                    return Redirect("/Thanks/Index");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Error");
-                }
+                return RedirectToAction("login", "user");
             }
-            return View(model);
-
+            var deltailsMedicalForms = context.DeltailsMedicalForms.Where(m=>m.MedicalExaminationForm.id_Appointment == id).FirstOrDefault();
+            var appointment = context.Apointments.Where(m=>m.Id == id).FirstOrDefault();
+            if(deltailsMedicalForms == null)
+            {
+                return View("DetailsComing", appointment);
+            }
+            return View(deltailsMedicalForms);
         }
 
+        
+        
 
     }
 }
