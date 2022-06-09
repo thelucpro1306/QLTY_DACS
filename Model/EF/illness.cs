@@ -17,7 +17,7 @@ namespace Model.EF
 
         public long id { get; set; }
 
-        [StringLength(50)]
+        [StringLength(250)]
         public string illName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

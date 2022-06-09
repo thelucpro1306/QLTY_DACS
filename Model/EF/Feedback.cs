@@ -9,25 +9,23 @@ namespace Model.EF
     [Table("Feedback")]
     public partial class Feedback
     {
-        public int ID { get; set; }
+        public long ID { get; set; }
 
-        [StringLength(50)]
-        public string Name { get; set; }
+        public DateTime CreateTime { get; set; }
 
-        [StringLength(50)]
-        public string Phone { get; set; }
+        public int? EntityID { get; set; }
 
-        [StringLength(50)]
-        public string Email { get; set; }
+        public long? Serviced_Id { get; set; }
 
-        [StringLength(50)]
-        public string Address { get; set; }
+        [StringLength(250)]
+        public string text { get; set; }
 
-        public DateTime? CreateTime { get; set; }
+        public long? User_id { get; set; }
 
-        public bool? Status { get; set; }
+        public long? RecordID { get; set; }
 
-        [StringLength(520)]
-        public string Content { get; set; }
+        public virtual Servicess Servicess { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

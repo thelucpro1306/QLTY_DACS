@@ -109,13 +109,13 @@ namespace ShopOnline.Controllers
         public ActionResult UserProfile()
         {
             var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
-            var client = new UserDao().getClientById(session.ID);
+            
             if (session != null)
             {
-                
+                var client = new UserDao().getClientById(session.ID);
                 return View(client);
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Login","User");
         }
 
 

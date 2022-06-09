@@ -47,6 +47,5 @@ namespace Model.EF
 
         public List<Client> list = new List<Client>();
 
-
     }
 }

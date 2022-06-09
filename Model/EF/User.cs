@@ -13,6 +13,7 @@ namespace Model.EF
         public User()
         {
             Clients = new HashSet<Client>();
+            Feedbacks = new HashSet<Feedback>();
         }
 
         public long ID { get; set; }
@@ -53,5 +54,8 @@ namespace Model.EF
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Client> Clients { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Feedback> Feedbacks { get; set; }
     }
 }

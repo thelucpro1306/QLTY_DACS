@@ -1,12 +1,14 @@
 ﻿using Model.DAO;
 using Model.EF;
 using ShopOnline.Common;
+using ShopOnline.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace ShopOnline.Controllers
 {
@@ -77,14 +79,22 @@ namespace ShopOnline.Controllers
                     return View("Index", model);
                 }
                 string content = System.IO.File.ReadAllText(Server.MapPath("~/content/template/neworder.html"));
-                var servicess = new ServicesDao().GetServicessById(ServicesId.ID);
 
+                var servicess = "";
+                if (ServicesId != null)
+                {
+                    servicess = new ServicesDao().GetServicessById(ServicesId.ID).Name;
+                }
+                else
+                {
+                    servicess = new ServicesDao().GetServicessById(model.ServicesId).Name;
+                }
                 content = content.Replace("{{CustomerName}}", model.Name);
                 content = content.Replace("{{Phone}}", model.Phone);
                 content = content.Replace("{{Email}}", model.Email);
-                content = content.Replace("{{BookingDate}}", model.BookingDate.ToString());
-                content = content.Replace("{{BookingTime}}", model.BookingTime.ToString());
-                content = content.Replace("{{Servicess}}", servicess.Name);
+                content = content.Replace("{{BookingDate}}", model.BookingDate.ToString("dd/MM/yyyy"));
+                content = content.Replace("{{BookingTime}}",ShiftToTime.shiftToTime(model.BookingTime));
+                content = content.Replace("{{Servicess}}", servicess);
                 content = content.Replace("{{Note}}", model.Note);
                 var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
                 
@@ -109,24 +119,67 @@ namespace ShopOnline.Controllers
 
         }
 
-        public ActionResult Details(long id)
+        public ActionResult Details(long id)       
         {
             var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];           
             if (session == null)
             {
                 return RedirectToAction("login", "user");
             }
-            var deltailsMedicalForms = context.DeltailsMedicalForms.Where(m=>m.MedicalExaminationForm.id_Appointment == id).FirstOrDefault();
+           
             var appointment = context.Apointments.Where(m=>m.Id == id).FirstOrDefault();
-            if(deltailsMedicalForms == null)
+            var deltailsMedicalForms = context.DeltailsMedicalForms.Where(m => m.MedicalExaminationForm.id_Appointment == id).FirstOrDefault();
+            if (deltailsMedicalForms == null)
             {
                 return View("DetailsComing", appointment);
             }
-            return View(deltailsMedicalForms);
+            else
+            {
+                TempData["appointment"] = appointment;
+                return View(deltailsMedicalForms);
+            }    
+            
+           
         }
 
-        
-        
+
+        [HttpPost]
+        public ActionResult leaveComment(CommentModel model)
+        {
+            //string url = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
+            var session = (ShopOnline.Common.UserLogin)Session["USER_SESSION"];
+            var appointment = new Apointment();
+            if (session == null)
+            {
+                return RedirectToAction("login", "user");
+            }
+            if(TempData.ContainsKey("appointment"))
+            {
+                appointment = TempData["appointment"] as Apointment;
+            }
+            var feedback = new Feedback();
+            feedback.text = model.text;
+            feedback.EntityID = model.EntityID;
+            feedback.User_id = session.ID;
+            feedback.CreateTime = DateTime.Now;
+            feedback.Serviced_Id = appointment.ServicesId;
+            
+            appointment.status = 1; // đã đánh giá **** nhớ sửa thành 1 để -1 để chạy code thử
+            var appointmentDao = new AppoimentDao().Update(appointment);
+            var servicesDao = new ServicesDao().LeaveComment(feedback);
+            if(servicesDao)
+            {
+
+                return Redirect("/Appointment/Details/"+ appointment.Id);
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+        }
+
+
+
 
     }
 }

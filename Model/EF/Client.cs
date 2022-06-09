@@ -31,7 +31,7 @@ namespace Model.EF
         [StringLength(50)]
         public string Phone { get; set; }
 
-        [StringLength(50)]
+        [StringLength(250)]
         public string Address { get; set; }
 
         public long? UserId { get; set; }
