@@ -21,6 +21,12 @@ namespace Model.DAO
             return servicess;
         }
 
+        public bool LeaveComment(Feedback feedback)
+        {
+            db.Feedbacks.Add(feedback);
+            
+            return db.SaveChanges() > 0;
+        }
 
     }
     

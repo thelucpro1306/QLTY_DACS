@@ -71,10 +71,6 @@ namespace Model.EF
                 .Property(e => e.Phone)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Client>()
-                .Property(e => e.Address)
-                .IsUnicode(false);
-
             modelBuilder.Entity<ContentTag>()
                 .Property(e => e.TagID)
                 .IsUnicode(false);
@@ -85,14 +81,6 @@ namespace Model.EF
 
             modelBuilder.Entity<Credential>()
                 .Property(e => e.RoleID)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DeltailsMedicalForm>()
-                .Property(e => e.Symptom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<DeltailsMedicalForm>()
-                .Property(e => e.Diagnose)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Doctor>()
@@ -115,10 +103,6 @@ namespace Model.EF
 
             modelBuilder.Entity<Footer>()
                 .Property(e => e.ID)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<illness>()
-                .Property(e => e.illName)
                 .IsUnicode(false);
 
             modelBuilder.Entity<illness>()
@@ -178,6 +162,11 @@ namespace Model.EF
                 .WithOptional(e => e.Servicess)
                 .HasForeignKey(e => e.ServicesId);
 
+            modelBuilder.Entity<Servicess>()
+                .HasMany(e => e.Feedbacks)
+                .WithOptional(e => e.Servicess)
+                .HasForeignKey(e => e.Serviced_Id);
+
             modelBuilder.Entity<Slide>()
                 .Property(e => e.Link)
                 .IsUnicode(false);
@@ -201,6 +190,11 @@ namespace Model.EF
             modelBuilder.Entity<User>()
                 .Property(e => e.GroupID)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.Feedbacks)
+                .WithOptional(e => e.User)
+                .HasForeignKey(e => e.User_id);
 
             modelBuilder.Entity<UserGroup>()
                 .Property(e => e.ID)

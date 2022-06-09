@@ -168,6 +168,7 @@
     <Compile Include="Common\UserServices.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\ThanksController.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\ServicesModel.cs" />
@@ -14094,6 +14096,7 @@
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Views\Appointment\Details.cshtml" />
     <Content Include="Views\Appointment\DetailsComing.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
