@@ -12,7 +12,7 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Client()
         {
-            Apointments = new HashSet<Apointment>();
+            Appointments = new HashSet<Appointment>();
             MedicalExaminationForms = new HashSet<MedicalExaminationForm>();
         }
 
@@ -37,7 +37,7 @@ namespace Model.EF
         public long? UserId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Apointment> Apointments { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; }
 
         public virtual User User { get; set; }
 

@@ -15,9 +15,9 @@ namespace Model.DAO
             db = new OnlineShopDBContext();
         }
 
-        public Servicess GetServicessById(long? id)
+        public Service GetServicessById(long? id)
         {
-            var servicess = db.Servicesses.Where(d => d.id == id).FirstOrDefault();
+            var servicess = db.Services.Where(d => d.id == id).FirstOrDefault();
             return servicess;
         }
 

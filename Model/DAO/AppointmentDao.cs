@@ -19,23 +19,23 @@ namespace Model.DAO
         }
 
 
-        public long Insert(Apointment apointment)
+        public long Insert(Appointment apointment)
         {
-            db.Apointments.Add(apointment);
+            db.Appointments.Add(apointment);
             db.SaveChanges();            
             return apointment.Id;
         }
 
-        public long Update(Apointment apointment)
+        public long Update(Appointment apointment)
         {
-            db.Apointments.AddOrUpdate(apointment);
+            db.Appointments.AddOrUpdate(apointment);
             db.SaveChanges();
             return apointment.Id;
         }
 
-        public IEnumerable<Apointment> ListAllPaging(string searchString ,int page,int pageSize)
+        public IEnumerable<Appointment> ListAllPaging(string searchString ,int page,int pageSize)
         {
-            IOrderedQueryable<Apointment> query = db.Apointments;
+            IOrderedQueryable<Appointment> query = db.Appointments;
             if (!string.IsNullOrEmpty(searchString))
             {
                 query = query.Where(x => x.Name.Contains(searchString) || x.Phone.Contains(searchString))

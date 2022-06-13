@@ -1,4 +1,4 @@
-﻿@model Model.EF.Apointment
+﻿@model Model.EF.Appointment
 
 @{
     ViewBag.Title = "Index";
@@ -24,7 +24,7 @@
     <div style="width:100%" class="carousel-inner" >
         <div class="carousel-item active">
             <img src="~/Assets/Client/images/carousel3.jpg">
-            <div class="carousel-caption">
+            <div style="font-family: 'Dosis', sans-serif;" class="carousel-caption">
                 <h1 class="display-2">Sức Khoẻ Thú Cưng</h1>
                 <h3>Bởi vì thú cưng không thể nói chúng có vấn đề gì</h3>
 
@@ -59,41 +59,41 @@
         </div>
     </div>
 </div>
-<div class="card-schedule d-flex justify-content-center" style=" width: 100%; gap: 20px; padding-left: 30px; box-sizing: border-box;">
+<div   class="card-schedule d-flex justify-content-center" style=" width: 100%; gap: 20px; padding-left: 30px; box-sizing: border-box;">
     @foreach (var item in Model.list)
     {
-        <div class="schedule-card" style="height: fit-content; border-radius: 10px;">
+    <div class="schedule-card" style="height: fit-content; border-radius: 10px;">
 
-            <div class="container" style="width: 200px; height: 260px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing:border-box">
-                <img class="Image_icon" src="~/Assets/Client/images/@item.Image" alt="@item.Name" style="width: 40%" />
-                <h4>
+        <div class="container" style="width: 200px; height: 260px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing:border-box">
+            <img class="Image_icon" src="~/Assets/Client/images/@item.Image" alt="@item.Name" style="width: 40%" />
+            <h4 class="mt-2" style="font-weight:bold ; font-family: 'Dosis', sans-serif" >
 
-                    @item.Name
-                </h4>
-                @if (session == null)
-                {
-                    <a href="@Url.Action("Service_"+item.id,"Service")">
-                        <p>
-                            Xem thêm...
-                        </p>
-                    </a>
-                }
-                else
-                {
-                    <a href="@Url.Action("Service_"+item.id,"Service")">
-                        <p>
-                            Xem thêm...
-                        </p>
-                    </a>
-                    <a href="@Url.Action("Index","Appointment",new {id = item.id})">
-                        <p>
-                            Đặt lịch ngay
-                        </p>
-                    </a>
+                @item.Name
+            </h4>
+            @if (session == null)
+            {
+                <a href="@Url.Action("Service_"+item.id,"Service")">
+                    <p>
+                        Xem thêm...
+                    </p>
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Service_"+item.id,"Service")">
+                    <p>
+                        Xem thêm...
+                    </p>
+                </a>
+                <a href="@Url.Action("Index","Appointment",new {id = item.id})">
+                    <p>
+                        Đặt lịch ngay
+                    </p>
+                </a>
 
-                }
-            </div>
+            }
         </div>
+    </div>
     }
 </div>
 

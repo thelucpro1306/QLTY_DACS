@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Model.EF.Apointment>
+﻿@model IEnumerable<Model.EF.Appointment>
 
 @{
     ViewBag.Title = "ScheduleHistory";
@@ -37,9 +37,9 @@
                             <div class="schedule-card" style="height: fit-content; border-radius: 10px;">
 
                                 <div class="container" style="width: 300px; height: 400px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing:border-box">
-                                    <img class="Image_icon" src="~/Assets/Client/images/@item.Servicess.Image" alt="Tiem ngua" style="width: 50%" />
+                                    <img class="Image_icon" src="~/Assets/Client/images/@item.Service.Image" alt="Tiem ngua" style="width: 50%" />
                                     <h4>
-                                        @item.Servicess.Name
+                                        @item.Service.Name
                                     </h4>
                                     @Html.Label(((DateTime)item.BookingDate).ToString("MM/dd/yyyy"))
                                     Giờ đặt: <strong>@Html.Label(a)</strong>
@@ -69,9 +69,9 @@
                             <div class="schedule-card" style="height: fit-content; border-radius: 10px;">
 
                                 <div class="container" style="width: 300px; height: 400px; display: flex; flex-direction: column; align-items: center; padding: 30px 0px; box-sizing: border-box">
-                                    <img class="Image_icon" src="~/Assets/Client/images/@items.Servicess.Image" alt="@items.Servicess.Name" style="width: 50%" />
+                                    <img class="Image_icon" src="~/Assets/Client/images/@items.Service.Image" alt="@items.Service.Name" style="width: 50%" />
                                     <h4 style="font-weight:bold">
-                                        @items.Servicess.Name
+                                        @items.Service.Name
                                     </h4>
                                     Ngày đặt: <h5 style="font-weight:bold">@Html.Label(((DateTime)items.BookingDate).ToString("MM/dd/yyyy"))</h5>
                                     Giờ đặt: <strong>@Html.Label(a)</strong>

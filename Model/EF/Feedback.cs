@@ -24,7 +24,7 @@ namespace Model.EF
 
         public long? RecordID { get; set; }
 
-        public virtual Servicess Servicess { get; set; }
+        public virtual Service Service { get; set; }
 
         public virtual User User { get; set; }
     }

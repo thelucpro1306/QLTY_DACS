@@ -22,18 +22,18 @@ namespace ShopOnline.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            Apointment apointment = new Apointment();
-            apointment.list = db.Servicesses.ToList();
+            Appointment apointment = new Appointment();
+            apointment.list = db.Services.ToList();
             return View(apointment);
         }
         [HttpPost]
-        public ActionResult Create(Apointment model)
+        public ActionResult Create(Appointment model)
         {
             
-            model.list = db.Servicesses.ToList();
+            model.list = db.Services.ToList();
             if (ModelState.IsValid)
             {
-                Apointment appointmentModel = new Apointment();
+                Appointment appointmentModel = new Appointment();
                 appointmentModel.Name = model.Name;
                 appointmentModel.Email = model.Email;
                 appointmentModel.Phone = model.Phone;
@@ -69,20 +69,20 @@ namespace ShopOnline.Areas.Admin.Controllers
 
         public ActionResult Details(long id)
         {
-            var details = db.Apointments.Where(n => n.Id.Equals(id)).FirstOrDefault();
+            var details = db.Appointments.Where(n => n.Id.Equals(id)).FirstOrDefault();
             return View(details);
         }
         public ActionResult Delete(int id)
         {
-            var Delete = db.Apointments.Where(n => n.Id.Equals(id)).FirstOrDefault();
+            var Delete = db.Appointments.Where(n => n.Id.Equals(id)).FirstOrDefault();
 
             return View(Delete);
         }
         [HttpPost]
-        public ActionResult Delete(Apointment model)
+        public ActionResult Delete(Appointment model)
         {
-            var Delete = db.Apointments.Where(n => n.Id.Equals(model.Id)).FirstOrDefault();
-            db.Apointments.Remove(Delete);
+            var Delete = db.Appointments.Where(n => n.Id.Equals(model.Id)).FirstOrDefault();
+            db.Appointments.Remove(Delete);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -91,15 +91,15 @@ namespace ShopOnline.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
 
-            var Edit = db.Apointments.Where(n => n.Id.Equals(id)).FirstOrDefault();
-            Edit.list = db.Servicesses.ToList();
+            var Edit = db.Appointments.Where(n => n.Id.Equals(id)).FirstOrDefault();
+            Edit.list = db.Services.ToList();
             return View(Edit);
         }
         [HttpPost]
-        public ActionResult Edit(Apointment model)
+        public ActionResult Edit(Appointment model)
         {
-            model.list = db.Servicesses.ToList();
-            var appointmentModel = db.Apointments.SingleOrDefault(s => s.Id == model.Id);
+            model.list = db.Services.ToList();
+            var appointmentModel = db.Appointments.SingleOrDefault(s => s.Id == model.Id);
             if (ModelState.IsValid)
             {
                 appointmentModel.Name = model.Name;

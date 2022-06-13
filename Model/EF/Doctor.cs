@@ -39,5 +39,6 @@ namespace Model.EF
         public virtual Faculty Faculty { get; set; }
 
         public List<Faculty> list = new List<Faculty>();
+
     }
 }
