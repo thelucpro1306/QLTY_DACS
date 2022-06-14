@@ -12,7 +12,7 @@
         gender = "Cái";
     }
     var stt = 0;
-    double tongTienThuoc = 0;
+    long tongTienThuoc = 0;
 
     string tiemngua = "", sieuam = "", XetNghiem = "";
     var DichVuSuDung = ViewBag.Service;
@@ -24,7 +24,7 @@
     }
 
 
-    double TongTienDichVu = 0;
+    long TongTienDichVu = 0;
 
 }
 
@@ -262,10 +262,10 @@
                                                 <p><strong>Dịch vụ khám:</strong> @item.DetailsService.Name</p>
                                             </div>
                                             <div class="col-5">
-                                                <p><strong>Đơn giá:</strong> @ShopOnline.Common.ReturnValue.StringToDecimal(double.Parse(item.DetailsService.Cost.ToString())) VND</p>
+                                                <p><strong>Đơn giá:</strong> @ShopOnline.Common.ReturnValue.StringToDecimal(long.Parse(item.DetailsService.Cost.ToString())) VND</p>
                                             </div>
                                         </div>
-                                        TongTienDichVu += (double)item.DetailsService.Cost;
+                                        TongTienDichVu += (long)item.DetailsService.Cost;
 
                                     }
                                     <hr />
@@ -278,8 +278,8 @@
                                         </div>
                                     </div>
                                     <hr />
-                                    <table class="table table-bordered table-striped table-condensed">
-                                        <tr>
+                                    <table class="table table-bordered table-striped">
+                                        <tr style="background-color:burlywood">
                                             <th>STT</th>
                                             <th>Tên thuốc</th>
                                             <th>Đơn vị</th>
@@ -292,15 +292,14 @@
                                         {
                                             stt++;
                                             var dongia = item.amount * item.Thuoc.Cost;
-                                            tongTienThuoc += (double)dongia;
+                                            tongTienThuoc += (long)dongia;
                                             <tr>
                                                 <td>@stt</td>
                                                 <td>@item.Thuoc.Name</td>
                                                 <td>@item.Thuoc.digit</td>
-                                                <td>@ShopOnline.Common.ReturnValue.StringToDecimal(double.Parse(item.Thuoc.Cost.ToString()))</td>
+                                                <td>@ShopOnline.Common.ReturnValue.StringToDecimal(long.Parse(item.Thuoc.Cost.ToString()))</td>
                                                 <td>@item.amount</td>
-
-                                                <td>@ShopOnline.Common.ReturnValue.StringToDecimal(double.Parse(dongia.ToString()))</td>
+                                                <td>@ShopOnline.Common.ReturnValue.StringToDecimal(long.Parse(dongia.ToString())) VND</td>
                                             </tr>
                                         }
                                     </table>

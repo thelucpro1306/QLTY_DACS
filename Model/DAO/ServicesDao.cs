@@ -17,8 +17,8 @@ namespace Model.DAO
 
         public Service GetServicessById(long? id)
         {
-            var servicess = db.Services.Where(d => d.id == id).FirstOrDefault();
-            return servicess;
+            var service = db.Services.Where(d => d.id == id).FirstOrDefault();
+            return service;
         }
 
         public bool LeaveComment(Feedback feedback)

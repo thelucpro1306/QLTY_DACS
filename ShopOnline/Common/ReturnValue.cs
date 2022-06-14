@@ -17,7 +17,7 @@ namespace ShopOnline.Common
             return status is true ? "Có" : "Không";
         }
 
-        public static string StringToDecimal(double status)
+        public static string StringToDecimal(long status)
         {
             return String.Format("{0:#,###,###.##}", status);
         }

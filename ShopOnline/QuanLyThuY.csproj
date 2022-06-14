@@ -843,6 +843,7 @@
     <Content Include="Assets\Admin\production\images\american-express.png" />
     <Content Include="Assets\Admin\production\images\cropper.jpg" />
     <Content Include="Assets\Admin\production\images\favicon.ico" />
+    <Content Include="Assets\Admin\production\images\icons8-search-24.png" />
     <Content Include="Assets\Admin\production\images\img.jpg" />
     <Content Include="Assets\Admin\production\images\inbox.png" />
     <Content Include="Assets\Admin\production\images\mastercard.png" />

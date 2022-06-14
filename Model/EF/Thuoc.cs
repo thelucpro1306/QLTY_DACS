@@ -23,7 +23,7 @@ namespace Model.EF
         [StringLength(50)]
         public string digit { get; set; }
 
-        public double? Cost { get; set; }
+        public long? Cost { get; set; }
 
         public long? id_LoaiThuoc { get; set; }
 

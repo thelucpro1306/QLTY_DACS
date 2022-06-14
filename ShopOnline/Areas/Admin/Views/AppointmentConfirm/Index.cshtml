@@ -10,31 +10,49 @@
     Trang chu
 }
 
+<style>
 
+    input[type=text] {
+        width: 100%;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: white;
+        background-image: url('/Assets/Admin/production/images/icons8-search-24.png');
+        background-position: 5px 10px;
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 40px;
+    }
+</style>
 <div class="row">
     <div class=" col-lg-12">
         <div class="row">
-            <div class="col-8">
+            <div class="col-3">
                 <p>
                     @Html.ActionLink("Create New", "Create", "AppointmentConfirm", new { @class = "ml-2 btn btn-primary" })
                 </p>
             </div>
-            @using (Html.BeginForm("index", "AppointmentConfirm", FormMethod.Get))
-            {
-                <div class="form-group row">
-                    <div class="col">
-                        <p>
-                            <input type="text" name="searchString" value="@ViewBag.SearchString" />
-                        </p>
+            <div class="col-9">
+                @using (Html.BeginForm("index", "AppointmentConfirm", FormMethod.Get, new { @class = "col" }))
+                {
+                    <div class="row-4">
+
+                        <input type="text" name="searchString"
+                               placeholder="Tìm bởi tên khách hàng hoặc số điện thoại"
+                               value="@ViewBag.SearchString" class="form-control" />
+
                     </div>
-                    <div class="col">
+                    <div class="row-4">
                         <p>
                             <button type="submit" class="btn btn-primary form-control">Find</button>
                         </p>
-                    </div>
-                </div>
 
-            }
+                    </div>
+
+
+                }
+            </div>
         </div>
 
 
@@ -67,11 +85,9 @@
 
             @foreach (var item in Model)
             {
-                
-                
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Servicess.Name)
+                        @Html.DisplayFor(modelItem => item.Service.Name)
                     </td>
 
                     <td>
@@ -91,23 +107,23 @@
                     </td>
 
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new {@class = "pl-3 pr-4 mr-1 btn btn-primary",}) 
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "mr-1 btn btn-success", }) 
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "pl-3 pr-4 mr-1 btn btn-primary", })
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "mr-1 btn btn-success", })
                         @Html.ActionLink("Delete", "Delete", new { id = item.Id, }, new { @class = "btn btn-secondary", })
                     </td>
                 </tr>
             }
 
         </table>
-        <div class=" dataTables_paginate paging_simple_numbers">
-            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page = Page,@searchString = @ViewBag.SearchString } ))
+        <div class=" dataTables_paginate paging_simple_numbers active">
+            @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page = Page, @searchString = @ViewBag.SearchString }))
         </div>
         <style>
-            .pagination{
+            .pagination {
                 float: right;
-                margin-right:30px;
-                
+                margin-right: 30px;
             }
+
             .dataTables_paginate paging_simple_numbers li {
                 display: inline;
             }

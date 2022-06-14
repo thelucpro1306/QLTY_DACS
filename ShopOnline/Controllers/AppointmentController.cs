@@ -80,21 +80,21 @@ namespace ShopOnline.Controllers
                 }
                 string content = System.IO.File.ReadAllText(Server.MapPath("~/content/template/neworder.html"));
 
-                var servicess = "";
+                var Service = "";
                 if (ServicesId != null)
                 {
-                    servicess = new ServicesDao().GetServicessById(ServicesId.ID).Name;
+                    Service = new ServicesDao().GetServicessById(ServicesId.ID).Name;
                 }
                 else
                 {
-                    servicess = new ServicesDao().GetServicessById(model.ServicesId).Name;
+                    Service = new ServicesDao().GetServicessById(model.ServicesId).Name;
                 }
                 content = content.Replace("{{CustomerName}}", model.Name);
                 content = content.Replace("{{Phone}}", model.Phone);
                 content = content.Replace("{{Email}}", model.Email);
                 content = content.Replace("{{BookingDate}}", model.BookingDate.ToString("dd/MM/yyyy"));
                 content = content.Replace("{{BookingTime}}",ShiftToTime.shiftToTime(model.BookingTime));
-                content = content.Replace("{{Servicess}}", servicess);
+                content = content.Replace("{{Service}}", Service);
                 content = content.Replace("{{Note}}", model.Note);
                 var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
                 
