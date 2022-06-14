@@ -13,7 +13,7 @@ namespace ShopOnline.Controllers
         // GET: Service
         public ActionResult Index()
         {
-            var model = db.Servicesses.ToList();
+            var model = db.Services.ToList();
             return View(model);
         }
 

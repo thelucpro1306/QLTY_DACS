@@ -9,6 +9,12 @@ namespace Model.EF
     [Table("DeltailsMedicalForm")]
     public partial class DeltailsMedicalForm
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DeltailsMedicalForm()
+        {
+            DonThuocs = new HashSet<DonThuoc>();
+        }
+
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -27,10 +33,16 @@ namespace Model.EF
 
         public long? id_Doctor { get; set; }
 
+        [Column(TypeName = "ntext")]
+        public string Note { get; set; }
+
         public virtual Doctor Doctor { get; set; }
 
         public virtual illness illness { get; set; }
 
         public virtual MedicalExaminationForm MedicalExaminationForm { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DonThuoc> DonThuocs { get; set; }
     }
 }

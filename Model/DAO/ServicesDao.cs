@@ -15,10 +15,10 @@ namespace Model.DAO
             db = new OnlineShopDBContext();
         }
 
-        public Servicess GetServicessById(long? id)
+        public Service GetServicessById(long? id)
         {
-            var servicess = db.Servicesses.Where(d => d.id == id).FirstOrDefault();
-            return servicess;
+            var service = db.Services.Where(d => d.id == id).FirstOrDefault();
+            return service;
         }
 
         public bool LeaveComment(Feedback feedback)

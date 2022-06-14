@@ -1,0 +1,394 @@
+﻿@model Model.EF.DeltailsMedicalForm
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var toaThuoc = ViewBag.ToaThuoc as List<Model.EF.CTToaThuoc>;
+
+    var gender = "Đực";
+    if (Model.MedicalExaminationForm.PetGender != true)
+    {
+        gender = "Cái";
+    }
+    var stt = 0;
+    long tongTienThuoc = 0;
+
+    string tiemngua = "", sieuam = "", XetNghiem = "";
+    var DichVuSuDung = ViewBag.Service;
+    foreach (var item in DichVuSuDung as IList<Model.EF.CacDichVuDaSuDung>)
+    {
+        tiemngua = ShopOnline.Common.ReturnValue.returnTrueOrFalse(item.DetailsService.Service.id == 2);
+        sieuam = ShopOnline.Common.ReturnValue.returnTrueOrFalse(item.DetailsService.Service.id == 5);
+        XetNghiem = ShopOnline.Common.ReturnValue.returnTrueOrFalse(item.DetailsService.Service.id == 7);
+    }
+
+
+    long TongTienDichVu = 0;
+
+}
+
+<style>
+    p {
+        font-size: 18px;
+    }
+</style>
+
+<h2 class="mt-3 d-flex justify-content-center">Phiếu khám bệnh</h2>
+<br />
+<br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-3"></div>
+        <div class="col-xl-6 ">
+            <section style="background-color: #eee;">
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card card ">
+                                <div class="card-header row">
+                                    <div class="col-12 d-flex justify-content-end">
+                                        @{
+                                            var date = DateTime.Now.ToString("dd/MM/yyyy");
+                                        }
+                                        @date
+                                    </div>
+                                    <div class="ml-1 card-img col-md-2 mr-1">
+                                        <img src="~/Assets/Client/images/Luc.png" alt="" width="110" />
+                                    </div>
+                                    <div class="col-md-9">
+                                        <h6 style="text-transform:uppercase">
+                                            <Strong>Phòng khám thú y Pet Clinic</Strong>
+                                        </h6>
+                                        <h7>
+                                            475A Dien Bien Phu, Binh Thanh district, HCM, VietNam
+                                        </h7>
+                                        <br />
+                                        <h7>
+                                            Điện thoại: 012-345-6789
+                                        </h7>
+                                    </div>
+                                    <br />
+                                    <div class="col-12 pt-4">
+                                        <h4 style="text-transform:uppercase">
+                                            <strong>Phiếu khám chữa bệnh thú nuôi</strong>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="card-body" style="font-size:24px">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <p class="mb-0"><strong>Mã phiếu khám bệnh:</strong></p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">PKB-@Model.MedicalExaminationForm.id</p>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <p class="mb-0"><strong>Ngày lập:</strong></p>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <p class="text-muted mb-0">
+                                                @Model.MedicalExaminationForm.CreateDate
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0"><strong>Tên Chủ:</strong></p>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <p class="text-muted mb-0">@Model.MedicalExaminationForm.Client.Name</p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="mb-0"><strong>Điện thoại:</strong></p>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <p class="text-muted mb-0">@Model.MedicalExaminationForm.Client.Phone</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <p class="mb-0"><strong>Tên thú:</strong></p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                @Model.MedicalExaminationForm.PetName
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="mb-0"><strong>Khối lượng:</strong></p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                @Model.MedicalExaminationForm.Weight Kg
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="mb-0"><strong>Màu lông:</strong></p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                @Model.MedicalExaminationForm.HairColor
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <p class="mb-0"><strong>Giới tính:</strong></p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                @gender
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="mb-0"><strong>Loài:</strong></p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                @Model.MedicalExaminationForm.Species
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="mb-0"><strong>Tuổi:</strong></p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                @Model.MedicalExaminationForm.Age
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h5 style="text-transform:uppercase;"
+                                                class="pt-5 d-flex justify-content-center">
+                                                <strong>
+                                                    Thông tin khám chữa bệnh - Bệnh án
+                                                </strong>
+                                            </h5>
+                                        </div>
+                                    </div>
+
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                <strong>
+                                                    Triệu chứng:
+                                                </strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <p class="text-muted mb-0">
+                                                @Model.Symptom
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                <strong>
+                                                    Chẩn đoán:
+                                                </strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <p class="text-muted mb-0">
+                                                @Model.Diagnose
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                <strong>
+                                                    Ghi chú:
+                                                </strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <p class="text-muted mb-0">
+                                                @Model.Note
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <p class="mb-0"><strong>Tiêm ngừa:</strong></p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                @tiemngua
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="mb-0"><strong>Siêu âm:</strong></p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                @sieuam
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="mb-0"><strong>Xét nghiệm:</strong></p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                @XetNghiem
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="mt-2 col-sm-12 d-flex justify-content-center">
+                                            <p style="text-transform:uppercase"><strong>Chi tiết các dịch vụ khám</strong></p>
+                                        </div>
+                                    </div>
+                                    @foreach (var item in DichVuSuDung)
+                                    {
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <p><strong>Dịch vụ khám:</strong> @item.DetailsService.Name</p>
+                                            </div>
+                                            <div class="col-5">
+                                                <p><strong>Đơn giá:</strong> @ShopOnline.Common.ReturnValue.StringToDecimal(long.Parse(item.DetailsService.Cost.ToString())) VND</p>
+                                            </div>
+                                        </div>
+                                        TongTienDichVu += (long)item.DetailsService.Cost;
+
+                                    }
+                                    <hr />
+                                    @{
+                                       var TongTienDichVuCV = ShopOnline.Common.ReturnValue.StringToDecimal(TongTienDichVu);
+                                    }
+                                    <div class="row">
+                                        <div class=" mt-2 col-sm-12 d-flex justify-content-center">
+                                            <p style="text-transform:uppercase"><strong>Toa thuốc</strong></p>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <table class="table table-bordered table-striped">
+                                        <tr style="background-color:burlywood">
+                                            <th>STT</th>
+                                            <th>Tên thuốc</th>
+                                            <th>Đơn vị</th>
+                                            <th>Đơn giá</th>
+                                            <th>Số lượng</th>
+                                            <th>Thành tiền</th>
+                                        </tr>
+
+                                        @foreach (var item in toaThuoc)
+                                        {
+                                            stt++;
+                                            var dongia = item.amount * item.Thuoc.Cost;
+                                            tongTienThuoc += (long)dongia;
+                                            <tr>
+                                                <td>@stt</td>
+                                                <td>@item.Thuoc.Name</td>
+                                                <td>@item.Thuoc.digit</td>
+                                                <td>@ShopOnline.Common.ReturnValue.StringToDecimal(long.Parse(item.Thuoc.Cost.ToString()))</td>
+                                                <td>@item.amount</td>
+                                                <td>@ShopOnline.Common.ReturnValue.StringToDecimal(long.Parse(dongia.ToString())) VND</td>
+                                            </tr>
+                                        }
+                                    </table>
+
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0 float-right">
+                                                <strong>
+                                                    Tổng tiền khám:
+                                                </strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0 float-right">
+                                                @TongTienDichVuCV  VND
+                                            </p>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0 float-right">
+                                                <strong>
+                                                    Tổng tiền thuốc:
+                                                </strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0 float-right">
+
+                                                @{var tienthuoc = ShopOnline.Common.ReturnValue.StringToDecimal(tongTienThuoc); } @tienthuoc VND
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0 float-right">
+
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0">
+                                                -------------------
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0 float-right">
+                                                <strong>
+                                                    Tổng tiền:
+                                                </strong>
+                                            </p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="text-muted mb-0 float-right">
+                                                @{
+                                                    var tienTong = ShopOnline.Common.ReturnValue
+                                                        .StringToDecimal(TongTienDichVu + tongTienThuoc);
+                                                }
+                                                @tienTong VND
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="float-right">
+                                        <strong>Bác sĩ khám</strong>
+                                        <br />
+                                        <br />
+                                        <br />
+                                        @Model.Doctor.Name
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <div class="col-xl-3"></div>
+    </div>
+</div>
+
+
+
+
+

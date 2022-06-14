@@ -164,12 +164,14 @@
     <Compile Include="Common\ConstantsCommon.cs" />
     <Compile Include="Common\Encryptor.cs" />
     <Compile Include="Common\MailHelper.cs" />
+    <Compile Include="Common\ReturnValue.cs" />
     <Compile Include="Common\ShiftToTime.cs" />
     <Compile Include="Common\UserServices.cs" />
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MEFController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Controllers\ThanksController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -841,6 +843,7 @@
     <Content Include="Assets\Admin\production\images\american-express.png" />
     <Content Include="Assets\Admin\production\images\cropper.jpg" />
     <Content Include="Assets\Admin\production\images\favicon.ico" />
+    <Content Include="Assets\Admin\production\images\icons8-search-24.png" />
     <Content Include="Assets\Admin\production\images\img.jpg" />
     <Content Include="Assets\Admin\production\images\inbox.png" />
     <Content Include="Assets\Admin\production\images\mastercard.png" />
@@ -6229,6 +6232,7 @@
     <Content Include="Assets\Client\images\carousel1.jpg" />
     <Content Include="Assets\Client\images\carousel2.jpg" />
     <Content Include="Assets\Client\images\carousel3.jpg" />
+    <Content Include="Assets\Client\images\cat123.png" />
     <Content Include="Assets\Client\images\choose2.png" />
     <Content Include="Assets\Client\images\couseling_1.PNG" />
     <Content Include="Assets\Client\images\couseling_2.PNG" />
@@ -6236,6 +6240,7 @@
     <Content Include="Assets\Client\images\doctor-briefcase.png" />
     <Content Include="Assets\Client\images\dog-house.png" />
     <Content Include="Assets\Client\images\dog.png" />
+    <Content Include="Assets\Client\images\dog123.png" />
     <Content Include="Assets\Client\images\download.png" />
     <Content Include="Assets\Client\images\grooming.PNG" />
     <Content Include="Assets\Client\images\hiep.jpg" />
@@ -6262,10 +6267,12 @@
     <Content Include="Assets\Client\images\screening_2.PNG" />
     <Content Include="Assets\Client\images\SieuAm.PNG" />
     <Content Include="Assets\Client\images\SieuAm1.PNG" />
+    <Content Include="Assets\Client\images\signs-of-pain-in-dogs-1637141943.jpg" />
     <Content Include="Assets\Client\images\Sugery_0.PNG" />
     <Content Include="Assets\Client\images\Surgery_1.PNG" />
     <Content Include="Assets\Client\images\Surgery_2.PNG" />
     <Content Include="Assets\Client\images\ultrasound.png" />
+    <Content Include="Assets\Client\images\Veterinarydentistry.png" />
     <Content Include="Assets\Client\images\vision.jpg" />
     <Content Include="Assets\Client\images\wellness.PNG" />
     <Content Include="Assets\Client\images\wellness_2.PNG" />
@@ -14056,6 +14063,7 @@
     <Content Include="Areas\Admin\Views\Doctor\Create.cshtml" />
     <Content Include="Assets\Client\images\Login_background.webp" />
     <Content Include="Assets\Client\images\login_background1.webp" />
+    <Content Include="Assets\Client\images\Bernese-mountain-dog-grass.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -14097,6 +14105,7 @@
     <Content Include="Views\Appointment\Details.cshtml" />
     <Content Include="Views\Appointment\DetailsComing.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\MEF\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

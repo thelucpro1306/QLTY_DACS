@@ -31,10 +31,10 @@
 </head>
 <body>
     <!--navigation-->
-    <nav  class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container-fluid">
-            <a class="navbar-branch" href="#">
-                
+            <a class="navbar-branch" href="/">
+
                 <img src="~/Assets/Client/images/Luc.png" height="50" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -42,62 +42,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tin tức</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/service">Dịch vụ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Chi Nhánh</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Liên Hệ</a>
-                    </li>
-                    @{
-                        var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
-                    }
-                    @if (session == null)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" href="/user/login">Đăng Nhập</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/user/register">Đăng Ký</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item dropdown no-arrow hidden">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span style="color: skyblue" class="mr-2 d-none d-lg-inline ">@session.UserName</span>
-                                <img style=" max-width: 30px; max-height:30px;" class="img-profile rounded-circle"
-                                     src="~/Assets/Client/images/hiep.jpg">
-                            </a>
-                            @*Dropdown - User Information*@
-                            <div style="background-color: cadetblue;margin: 0;" class=" dropdown-menu dropdown-menu-lg-right shadow animated--grow-in m-0"
-                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="@Url.Action("Logout","user")">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-
-                            </div>
-                        </li>
-                    }
-                </ul>
-            </div>
+            @{ Html.RenderAction("MainMenu", "Home");}
 
         </div>
     </nav>
@@ -105,7 +50,7 @@
     <div class="container-wrap">
         <div class="container main-content">
             <div class="col-lg-6">
-                
+
                 <img src="~/Assets/Client/images/Patient_1.PNG" class="img-fluid" />
             </div>
             <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
@@ -133,38 +78,7 @@
     </div>
     <br>
     <hr>
-    <footer>
-        <div class="container-fluid padding">
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <img src="~/Assets/Client/images/Luc.png">
-                    <hr class="light">
-                    <p>111-222-3333</p>
-                    <p>nhatdang261@gmail.com</p>
-                    <p>475A Dien Bien Phu, Binh Thanh district, HCM, VietNam</p>
-                </div>
-                <div class="col-md-4">
-                    <hr class="light">
-                    <h5>Working hours</h5>
-                    <hr class="light">
-                    <p>Monday-Friday: 8am - 5pm</p>
-                    <p>Weekend: 8am - 12am</p>
-                </div>
-                <div class="col-md-4">
-                    <hr class="light">
-                    <h5>Services</h5>
-                    <hr class="light">
-                    <p>Outsourcing</p>
-                    <p>Website development</p>
-                    <p>Mobile applications</p>
-                </div>
-                <div class="col-12">
-                    <hr class="light-100">
-                    <h5>&copy; WebProject</h5>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @{ Html.RenderAction("MainMenu", "Home");}
 
 
 </body>

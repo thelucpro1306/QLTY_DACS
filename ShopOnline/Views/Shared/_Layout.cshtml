@@ -23,18 +23,19 @@
     <!-- Custom styles for this template-->
     @*<link href="~/Assets/Client/css/sb-admin-2.min.css" rel="stylesheet">*@
 
-
 </head>
 <body>
+    <script src="~/Assets/Admin/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
+    <script src="~/Assets/Admin/vendors/moment/min/moment.min.js"></script>
+    <script src="~/Assets/Admin/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <style>
         * {
-            font-family: 'Dosis', sans-serif;
-            
+            font-family: Arial;
         }
-        h2{
-            font-weight: bold;
 
+        h2 {
+            font-weight: bold;
         }
     </style>
     <!-- Navigation-->
@@ -47,11 +48,14 @@
                     data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            @{Html.RenderAction("MainMenu", "Home");}           
+            @{Html.RenderAction("MainMenu", "Home");}
         </div>
     </nav>
     @RenderBody()
-    
+
     @{ Html.RenderAction("Footer", "Home");}
+
+
+
 </body>
 </html>

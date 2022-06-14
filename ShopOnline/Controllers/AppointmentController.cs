@@ -23,8 +23,8 @@ namespace ShopOnline.Controllers
             {
                 return RedirectToAction("login", "user");
             }
-            Apointment apointment = new Apointment();
-            apointment.list = context.Servicesses.ToList();
+            Appointment apointment = new Appointment();
+            apointment.list = context.Services.ToList();
             if(id.HasValue)
             {
                 var dao = new ServicesDao().GetServicessById(id);
@@ -39,7 +39,7 @@ namespace ShopOnline.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Apointment model)
+        public ActionResult Index(Appointment model)
         {
             var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
             var ServicesId = (ShopOnline.Common.UserServices)Session[ConstantsCommon.SERVICES_SESSION];
@@ -50,7 +50,7 @@ namespace ShopOnline.Controllers
             var client = new UserDao().getClientById(session.ID);
             if (ModelState.IsValid)
             {
-                Apointment appointmentModel = new Apointment();
+                Appointment appointmentModel = new Appointment();
                 appointmentModel.Name = model.Name;
                 appointmentModel.Email = model.Email;
                 appointmentModel.Phone = model.Phone;
@@ -68,7 +68,7 @@ namespace ShopOnline.Controllers
                     appointmentModel.ServicesId = model.ServicesId;
                 }
                 appointmentModel.ClientID = client.id;
-                model.list = context.Servicesses.ToList();
+                model.list = context.Services.ToList();
                 var dt = model.BookingDate;
                 var dtnow = DateTime.Now;
                 var res = DateTime.Compare((DateTime)dt, dtnow);
@@ -80,21 +80,21 @@ namespace ShopOnline.Controllers
                 }
                 string content = System.IO.File.ReadAllText(Server.MapPath("~/content/template/neworder.html"));
 
-                var servicess = "";
+                var Service = "";
                 if (ServicesId != null)
                 {
-                    servicess = new ServicesDao().GetServicessById(ServicesId.ID).Name;
+                    Service = new ServicesDao().GetServicessById(ServicesId.ID).Name;
                 }
                 else
                 {
-                    servicess = new ServicesDao().GetServicessById(model.ServicesId).Name;
+                    Service = new ServicesDao().GetServicessById(model.ServicesId).Name;
                 }
                 content = content.Replace("{{CustomerName}}", model.Name);
                 content = content.Replace("{{Phone}}", model.Phone);
                 content = content.Replace("{{Email}}", model.Email);
                 content = content.Replace("{{BookingDate}}", model.BookingDate.ToString("dd/MM/yyyy"));
                 content = content.Replace("{{BookingTime}}",ShiftToTime.shiftToTime(model.BookingTime));
-                content = content.Replace("{{Servicess}}", servicess);
+                content = content.Replace("{{Service}}", Service);
                 content = content.Replace("{{Note}}", model.Note);
                 var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
                 
@@ -127,7 +127,7 @@ namespace ShopOnline.Controllers
                 return RedirectToAction("login", "user");
             }
            
-            var appointment = context.Apointments.Where(m=>m.Id == id).FirstOrDefault();
+            var appointment = context.Appointments.Where(m=>m.Id == id).FirstOrDefault();
             var deltailsMedicalForms = context.DeltailsMedicalForms.Where(m => m.MedicalExaminationForm.id_Appointment == id).FirstOrDefault();
             if (deltailsMedicalForms == null)
             {
@@ -148,14 +148,14 @@ namespace ShopOnline.Controllers
         {
             //string url = System.Web.HttpContext.Current.Request.Url.AbsoluteUri;
             var session = (ShopOnline.Common.UserLogin)Session["USER_SESSION"];
-            var appointment = new Apointment();
+            var appointment = new Appointment();
             if (session == null)
             {
                 return RedirectToAction("login", "user");
             }
             if(TempData.ContainsKey("appointment"))
             {
-                appointment = TempData["appointment"] as Apointment;
+                appointment = TempData["appointment"] as Appointment;
             }
             var feedback = new Feedback();
             feedback.text = model.text;

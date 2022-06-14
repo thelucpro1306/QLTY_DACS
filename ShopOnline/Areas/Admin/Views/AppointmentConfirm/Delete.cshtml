@@ -1,4 +1,4 @@
-﻿@model Model.EF.Apointment
+﻿@model Model.EF.Appointment
 
 @{
     ViewBag.Title = "Delete";
@@ -14,19 +14,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Servicess.Name)
+            @Html.DisplayNameFor(model => model.Service.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Servicess.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.User.UserName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.User.UserName)
+            @Html.DisplayFor(model => model.Service.Name)
         </dd>
 
         <dt>
@@ -51,14 +43,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.Note)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
         </dd>
 
         <dt>

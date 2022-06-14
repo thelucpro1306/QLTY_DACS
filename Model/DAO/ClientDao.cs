@@ -18,6 +18,11 @@ namespace Model.DAO
             db = new OnlineShopDBContext(); 
         }
 
+        public Client getClientByUserId(long id)
+        {
+            return db.Clients.Where(c => c.UserId == id).FirstOrDefault();   
+        }
+
         public IEnumerable<Client> ListAllPaging(string searchString, int page, int pageSize)
         {
             IOrderedQueryable<Client> query = db.Clients;
@@ -81,9 +86,9 @@ namespace Model.DAO
             return db.Clients.Find(id);
         }
 
-        public List<Apointment> getAppointmentByClientID(long id)
+        public List<Appointment> getAppointmentByClientID(long id)
         {
-            var a = db.Apointments.Where(x => x.ClientID == id).ToList();
+            var a = db.Appointments.Where(x => x.ClientID == id).ToList();
             return a;
         }
     }

@@ -4,6 +4,13 @@
 
     Layout = "~/Views/Shared/_Layout.cshtml";
     var rating = new Model.EF.Feedback();
+    var a = (ShopOnline.Common.ShiftToTime.shiftToTime(Model.MedicalExaminationForm.Appointment.BookingTime));
+    var petGender = "Đực";
+    if (Model.MedicalExaminationForm.PetGender != true)
+    {
+        petGender = " Cái";
+    }
+
 }
 
 <h2 class="mt-3 d-flex justify-content-center">Chi tiết lịch khám</h2>
@@ -19,11 +26,23 @@
                         <div class="col-lg-4">
                             <div class="card mb-3">
                                 <div class="card-body text-center">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                                         class="rounded-circle img-fluid" style="width: 150px;">
-                                    <h5 class="my-3">John Smith</h5>
-                                    <p class="text-muted mb-1">Full Stack Developer</p>
-                                    <p class="text-muted mb-1">Bay Area, San Francisco, CA</p>
+                                    @if (@Model.MedicalExaminationForm.Species == "dog")
+                                    {
+                                        <img src="~/Assets/Client/images/dog123.png" alt="avatar"
+                                             class="rounded-circle img-fluid" style="width: 220px; height: 220px">
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Assets/Client/images/cat123.png" alt="avatar"
+                                             class="rounded-circle img-fluid" style="width: 220px; height: 220px">
+                                    }
+                                    @*<img src="~/Assets/Client/images/Dog_Icon.jpg" />*@
+                                    <h5 class="my-3">@Model.MedicalExaminationForm.PetName</h5>
+                                    @{
+                                        var age = int.Parse(Model.MedicalExaminationForm.Age.ToString());
+                                    }
+                                    <p class="text-muted mb-1">@age tuổi</p>
+                                    <p class="text-muted mb-1"></p>
                                 </div>
                             </div>
 
@@ -32,46 +51,48 @@
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <div class="row d-flex justify-content-center">
-                                        <div class="col-sm-3">
-                                            <p  class=" mb-0"><strong>Thông tin chủ</strong></p>
+                                        <div class="row ">
+                                            <div class="col-sm-12">
+                                                <p><strong>Thông tin thú cưng</strong></p>
+                                            </div>                                        
                                         </div>
-                                        
+
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <p class="mb-0"><strong>Họ và tên chủ</strong></p>
+                                            <p class="mb-0"><strong>Loài:</strong></p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">@Model.MedicalExaminationForm.Client.Name</p>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <p class="mb-0"><strong>Địa chỉ email</strong></p>
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <p class="text-muted mb-0">@Model.MedicalExaminationForm.Client.email</p>
+                                            <p class="text-muted mb-0">@Model.MedicalExaminationForm.Species</p>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <p class="mb-0"><strong>Số điện thoại</strong></p>
+                                            <p class="mb-0"><strong>Màu lông:</strong></p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">@Model.MedicalExaminationForm.Client.Phone</p>
+                                            <p class="text-muted mb-0">@Model.MedicalExaminationForm.HairColor</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0"><strong>Giới tính:</strong></p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">@petGender</p>
                                         </div>
                                     </div>
                                     <hr>
 
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <p class="mb-0"><Strong>Địa chỉ</Strong></p>
+                                            <p class="mb-0"><Strong>Cân nặng</Strong></p>
                                         </div>
                                         <div class="col-sm-9">
-                                            <p class="text-muted mb-0">@Model.MedicalExaminationForm.Client.Address</p>
+                                            <p class="text-muted mb-0">@Model.MedicalExaminationForm.Weight</p>
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +102,48 @@
                         <div class="col-12">
                             <div class="card card">
                                 <div class="card-body">
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0"><strong>Dịch vụ đã chọn</strong></p>
 
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">@Model.MedicalExaminationForm.Appointment.Service.Name</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0"><strong>Ngày đặt</strong></p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">@Model.MedicalExaminationForm.Appointment.BookingDate.ToString("dd/MM/yyyy")</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0"><strong>Giờ Đặt</strong></p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">@a</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0"><strong>Ghi chú</strong></p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">@Model.MedicalExaminationForm.Appointment.Note</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div>
+                                        <a href="@Url.Action("Index","MEF", new {id = Model.id_Form})" class="btn btn-primary float-right">Xem phiếu khám bệnh</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +164,7 @@
                     <strong>Đánh giá chất lượng dịch vụ</strong>
                 </div>
                 <div class="card-body">
-                    @if (Model.MedicalExaminationForm.Apointment.status == 1)
+                    @if (Model.MedicalExaminationForm.Appointment.status == 1)
                     {
                         <p>Cảm ơn bạn đã đánh giá</p>
                     }
@@ -113,24 +175,24 @@
                             <div style="width:100%" class="form-group d-inline-block float-left">
                                 <strong>Bạn đánh giá dịch vụ đạt mấy sao: </strong>
                                 <span class="ml-3 text-warning ">
-                                    <i class="ratingStar far fa-star" data-value = "1"  ></i>
-                                    <i class="ratingStar far fa-star" data-value = "2"  ></i>
-                                    <i class="ratingStar far fa-star" data-value = "3"  ></i>
-                                    <i class="ratingStar far fa-star" data-value = "4"  ></i>
-                                    <i class="ratingStar far fa-star" data-value = "5"  ></i>
+                                    <i class="ratingStar far fa-star" data-value="1"></i>
+                                    <i class="ratingStar far fa-star" data-value="2"></i>
+                                    <i class="ratingStar far fa-star" data-value="3"></i>
+                                    <i class="ratingStar far fa-star" data-value="4"></i>
+                                    <i class="ratingStar far fa-star" data-value="5"></i>
                                 </span>
-                                <input class="EntityID" type="hidden" name="EntityID" id="EntityID"   />
-                               
+                                <input class="EntityID" type="hidden" name="EntityID" id="EntityID" />
+
                             </div>
 
 
                             <div class="form-group">
                                 @**Lay gia tri comment*@
-                                <textarea class="form-control" 
-                                          cols="20" id="text" 
+                                <textarea class="form-control"
+                                          cols="20" id="text"
                                           name="text" placeholder="Hãy chia sẻ cảm nhận của bạn về dịch vụ với chúng tôi ở đây..." row="2" rows="2"></textarea>
                             </div>
-                            <button class="btn btn-success float-lg-right" type="submit" >Xác nhận</button>
+                            <button class="btn btn-success float-lg-right" type="submit">Xác nhận</button>
                         }
                     }
 
@@ -151,18 +213,12 @@
     });
 
     $(".ratingStar").click(function () {
-        debugger;
-        var starValue = $(this).attr("data-value")  
+
+        var starValue = $(this).attr("data-value")
         var values = parseInt(starValue);
         console.log(values);
         $(".EntityID").val(values);
     });
     $("form").serializeArray()
 </script>
-<p>
-    @if (Model.MedicalExaminationForm.Apointment.BookingDate >= DateTime.Now)
-    {
-        @Html.ActionLink("Edit", "Edit", new { id = Model.MedicalExaminationForm.id_Appointment })
-    }
 
-</p>

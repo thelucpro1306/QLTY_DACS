@@ -6,13 +6,13 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Servicess")]
-    public partial class Servicess
+    public partial class Service
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Servicess()
+        public Service()
         {
-            Apointments = new HashSet<Apointment>();
+            Appointments = new HashSet<Appointment>();
+            DetailsServices = new HashSet<DetailsService>();
             Feedbacks = new HashSet<Feedback>();
         }
 
@@ -21,8 +21,6 @@ namespace Model.EF
         [StringLength(250)]
         public string Name { get; set; }
 
-        public int? Cost { get; set; }
-
         [Column(TypeName = "ntext")]
         public string Description { get; set; }
 
@@ -30,7 +28,10 @@ namespace Model.EF
         public string Image { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Apointment> Apointments { get; set; }
+        public virtual ICollection<Appointment> Appointments { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetailsService> DetailsServices { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Feedback> Feedbacks { get; set; }

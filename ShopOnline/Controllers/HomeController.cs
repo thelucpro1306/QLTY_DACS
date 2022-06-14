@@ -15,15 +15,15 @@ namespace ShopOnline.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            
-            Apointment apointment = new Apointment();
-            apointment.list = context.Servicesses.ToList();    
+
+            Appointment apointment = new Appointment();
+            apointment.list = context.Services.ToList();    
             
             return View(apointment);
         }
 
         [HttpPost]
-        public ActionResult Index(Apointment model)
+        public ActionResult Index(Appointment model)
         {
             var session = (ShopOnline.Common.UserLogin)Session[ShopOnline.Common.ConstantsCommon.USER_SESSION];
             if(session == null)
@@ -33,7 +33,7 @@ namespace ShopOnline.Controllers
             var client = new UserDao().getClientById(session.ID);
             if (ModelState.IsValid)
             {
-                Apointment appointmentModel = new Apointment();
+                Appointment appointmentModel = new Appointment();
                 appointmentModel.Name = model.Name;
                 appointmentModel.Email = model.Email;
                 appointmentModel.Phone = model.Phone;
@@ -44,7 +44,7 @@ namespace ShopOnline.Controllers
                 appointmentModel.DateCreate = DateTime.Now;
                 appointmentModel.ServicesId = model.ServicesId;
                 appointmentModel.ClientID = client.id;
-                model.list = context.Servicesses.ToList();
+                model.list = context.Services.ToList();
                 var dt = model.BookingDate;
                 var dtnow = DateTime.Now;
                 var res = DateTime.Compare((DateTime)dt,dtnow);

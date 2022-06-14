@@ -6,11 +6,11 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Apointment")]
-    public partial class Apointment
+    [Table("Appointment")]
+    public partial class Appointment
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Apointment()
+        public Appointment()
         {
             MedicalExaminationForms = new HashSet<MedicalExaminationForm>();
         }
@@ -45,12 +45,12 @@ namespace Model.EF
 
         public virtual Client Client { get; set; }
 
-        public virtual Servicess Servicess { get; set; }
+        public virtual Service Service { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MedicalExaminationForm> MedicalExaminationForms { get; set; }
 
-        public List<Servicess> list = new List<Servicess>();
+        public List<Service> list = new List<Service>();
 
     }
 }
