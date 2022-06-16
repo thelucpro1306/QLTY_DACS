@@ -44,5 +44,13 @@ namespace Model.DAO
             return query.OrderBy(p => p.BookingDate).ToPagedList(page,pageSize);
         }
 
+
+        public Appointment SearchAppointment(string searchString)
+        {
+            var rs = db.Appointments.Where(x => x.Name.Contains(searchString) 
+                    || x.Phone.Contains(searchString)).FirstOrDefault();
+            return rs;
+        }
+
     }
 }

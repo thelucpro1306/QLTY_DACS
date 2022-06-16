@@ -27,6 +27,10 @@
 
     <!-- Custom Theme Style -->
     <link href="~/Assets/admin/build/css/custom.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
+
+    
 </head>
 
 <body class="nav-md">
@@ -55,16 +59,16 @@
                                     <a href="/admin/Home"><i class="fa fa-home"></i> Trang chủ</a>
                                 </li>
                                 @*<li>
-            <a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-                <li><a href="form.html">General Form</a></li>
-                <li><a href="form_advanced.html">Advanced Components</a></li>
-                <li><a href="form_validation.html">Form Validation</a></li>
-                <li><a href="form_wizards.html">Form Wizard</a></li>
-                <li><a href="form_upload.html">Form Upload</a></li>
-                <li><a href="form_buttons.html">Form Buttons</a></li>
-            </ul>
-        </li>*@
+                                        <a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="form.html">General Form</a></li>
+                                            <li><a href="form_advanced.html">Advanced Components</a></li>
+                                            <li><a href="form_validation.html">Form Validation</a></li>
+                                            <li><a href="form_wizards.html">Form Wizard</a></li>
+                                            <li><a href="form_upload.html">Form Upload</a></li>
+                                            <li><a href="form_buttons.html">Form Buttons</a></li>
+                                        </ul>
+                                    </li>*@
                                 <li>
                                     <a href="/admin/AppointmentConfirm"><i class="fa fa-calendar-check-o"></i> Quản lý đặt lịch </a>
                                 </li>
@@ -82,22 +86,22 @@
                                     <a href="/admin/Doctor"><i class="fa fa-user"></i> Quản lý bác sĩ </a>
                                 </li>
                                 @*<li>
-            <a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-                <li><a href="chartjs.html">Chart JS</a></li>
-                <li><a href="chartjs2.html">Chart JS2</a></li>
-                <li><a href="morisjs.html">Moris JS</a></li>
-                <li><a href="echarts.html">ECharts</a></li>
-                <li><a href="other_charts.html">Other Charts</a></li>
-            </ul>
-        </li>*@
+                                        <a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="chartjs.html">Chart JS</a></li>
+                                            <li><a href="chartjs2.html">Chart JS2</a></li>
+                                            <li><a href="morisjs.html">Moris JS</a></li>
+                                            <li><a href="echarts.html">ECharts</a></li>
+                                            <li><a href="other_charts.html">Other Charts</a></li>
+                                        </ul>
+                                    </li>*@
                                 @*<li>
-            <a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-                <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                <li><a href="fixed_footer.html">Fixed Footer</a></li>
-            </ul>
-        </li>*@
+                                        <a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu">
+                                            <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
+                                            <li><a href="fixed_footer.html">Fixed Footer</a></li>
+                                        </ul>
+                                    </li>*@
                             </ul>
                         </div>
 
@@ -148,7 +152,7 @@
             <div class="right_col" role="main">
                 <!-- top tiles -->
                 <div class="welcome">
-                    <h3>@RenderSection("Header", required: true)</h3>
+                    <h3>@RenderSection("Header", required: false)</h3>
                 </div>
                 <br />
                 <hr />
@@ -207,5 +211,8 @@
     <script src="~/Assets/admin/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script src="~/Assets/Admin/ckfinder/ckfinder.js"></script>
     <script src="~/Assets/admin/build/js/custom.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+    @RenderSection("Datatable", required: false)
 </body>
 </html>
