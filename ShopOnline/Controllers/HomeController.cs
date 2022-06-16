@@ -15,10 +15,8 @@ namespace ShopOnline.Controllers
         // GET: Home
         public ActionResult Index()
         {
-
             Appointment apointment = new Appointment();
-            apointment.list = context.Services.ToList();    
-            
+            apointment.list = context.Services.Take(8).ToList();                
             return View(apointment);
         }
 
@@ -37,7 +35,6 @@ namespace ShopOnline.Controllers
                 appointmentModel.Name = model.Name;
                 appointmentModel.Email = model.Email;
                 appointmentModel.Phone = model.Phone;
-                
                 appointmentModel.Note = model.Note;
                 appointmentModel.status = -1;
                 appointmentModel.BookingDate = model.BookingDate;

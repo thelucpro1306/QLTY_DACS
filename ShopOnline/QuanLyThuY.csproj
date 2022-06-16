@@ -14057,13 +14057,14 @@
     <Content Include="Assets\Admin\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Admin\Views\Client\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AppointmentConfirm\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\MedicalExaminationForm\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Client\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Doctor\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Doctor\Create.cshtml" />
     <Content Include="Assets\Client\images\Login_background.webp" />
     <Content Include="Assets\Client\images\login_background1.webp" />
     <Content Include="Assets\Client\images\Bernese-mountain-dog-grass.webp" />
+    <Content Include="Areas\Admin\Views\MedicalExaminationForm\SearchAppointment.cshtml" />
+    <Content Include="Areas\Admin\Views\MedicalExaminationForm\Create.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

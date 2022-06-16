@@ -76,7 +76,7 @@ namespace ShopOnline.Controllers
                 {
                     ModelState.AddModelError("", "please, check your clinic date" +
                         " ( the date must be higher than the present day) ");
-                    return View("Index", model);
+                    return View(model);
                 }
                 string content = System.IO.File.ReadAllText(Server.MapPath("~/content/template/neworder.html"));
 
@@ -96,8 +96,7 @@ namespace ShopOnline.Controllers
                 content = content.Replace("{{BookingTime}}",ShiftToTime.shiftToTime(model.BookingTime));
                 content = content.Replace("{{Service}}", Service);
                 content = content.Replace("{{Note}}", model.Note);
-                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();
-                
+                var toEmail = ConfigurationManager.AppSettings["ToEmailAddress"].ToString();   
                 new MailHelper().SendMail(model.Email, "Pet Clinic", content);
                 new MailHelper().SendMail(toEmail, "Pet Clinic", content);
 
@@ -105,7 +104,6 @@ namespace ShopOnline.Controllers
                 var rs = dao.Insert(appointmentModel);
                 if (rs > 0)
                 {
-
                     ViewBag.Success = "Success!";
                     Session[ConstantsCommon.SERVICES_SESSION] = null;
                     return RedirectToAction("Index", "Thanks");

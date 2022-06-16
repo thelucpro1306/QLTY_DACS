@@ -1,4 +1,5 @@
-﻿using Model.EF;
+﻿using Model.DAO;
+using Model.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +14,25 @@ namespace ShopOnline.Areas.Admin.Controllers
         // GET: Admin/MedicalExaminationForm
         public ActionResult Index()
         {           
+
+
+
             return View();
         }
 
         public ActionResult Create()
         {
-            MedicalExaminationForm form = new MedicalExaminationForm();
-            form.list = db.Clients.ToList();
-            return View(form);
+            return View();
         }
 
+        public ActionResult SearchAppointment(string searchString)
+        {
+            var dao = new AppoimentDao();
+            var list = dao.SearchAppointment(searchString);
+            ViewBag.SearchString = searchString;
+            return View(list);
+            
+        }
 
     }
 }

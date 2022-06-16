@@ -6,7 +6,7 @@
 }
 
 @section Header{
-    Edit
+
 }
 
 @using (Html.BeginForm())
@@ -14,7 +14,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Apointment</h4>
+        <h4>Chỉnh sửa lịch đặt của khách hàng</h4>
         <hr />
         @Html.ValidationSummary(false, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -91,7 +91,6 @@
         </div>
     </div>
 }
-
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
